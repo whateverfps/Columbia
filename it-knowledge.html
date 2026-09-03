@@ -1,34 +1,194 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IT + Knowledge — Enterprise AI</title>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IT Command — Enterprise AI Suite</title>
 <style>
-:root{--bg:#060a12;--panel:#0d1423;--line:#22314a;--text:#eff5fc;--muted:#94a6bc;--accent:#79d4fb;--violet:#a78bfa}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#11223b 0,#060a12 42%);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.shell{min-height:100vh;display:grid;grid-template-columns:230px 1fr}
-aside{position:fixed;inset:0 auto 0 0;width:230px;height:100vh;padding:22px 16px;border-right:1px solid #18243a;background:rgba(6,10,18,.94);display:flex;flex-direction:column}
-.brand{display:flex;gap:10px;align-items:center;margin:2px 6px 28px}.mark{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--violet));color:#061018;font-weight:900}.brand b{display:block}.brand span{font-size:10px;color:var(--muted)}
-.nav{display:grid;gap:7px}.nav a{padding:11px 12px;border-radius:9px;color:#aebbd0;font-size:12px}.nav a:hover,.nav a.active{background:#121c2f;color:#fff}.back{margin-top:auto;border:1px solid var(--line);border-radius:12px;padding:12px;color:#b7c7da;font-size:11px;background:#0d1423}
-main{grid-column:2;padding:0 34px 50px;max-width:1600px;width:100%;margin:auto}header{height:88px;border-bottom:1px solid #172137;display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}.eyebrow{font-size:10px;letter-spacing:1.6px;font-weight:900;color:var(--accent)}header h1{font-size:24px;margin:5px 0 0}.pill{font-size:10px;border:1px solid var(--line);border-radius:999px;padding:8px 11px;color:#b8c7d8}
-.hero{border:1px solid #22334d;border-radius:22px;background:linear-gradient(135deg,#111d31,#090f1a);display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden;min-height:360px}.hero-copy{padding:48px}.hero h2{font-size:44px;line-height:1.02;letter-spacing:-1.4px;margin:11px 0 15px}.hero p{font-size:14px;line-height:1.65;color:var(--muted);max-width:700px}
-.hero-viz{position:relative;display:grid;place-items:center;background:radial-gradient(circle,rgba(121,212,251,.1),transparent 52%)}.orb{width:106px;height:106px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e7faff,var(--accent) 36%,#7566d4 67%,#151827 72%);box-shadow:0 0 78px color-mix(in srgb,var(--accent) 24%,transparent)}.ring{position:absolute;width:340px;height:175px;border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);border-radius:50%;transform:rotate(22deg)}.ring.r2{width:430px;height:225px;transform:rotate(-30deg);opacity:.6}
-.section{margin:36px 0 15px}.section h2{margin:6px 0;font-size:30px}.section p{color:var(--muted);font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.cap{border:1px solid var(--line);background:var(--panel);border-radius:15px;padding:18px;min-height:205px}.cap-icon{width:31px;height:31px;border-radius:8px;background:#142640;color:var(--accent);display:grid;place-items:center;font-size:9px;font-weight:900}.cap h3{font-size:14px;margin:17px 0 7px}.cap p{font-size:11px;line-height:1.5;color:var(--muted)}.chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:12px}.chips span{font-size:9px;border:1px solid #2a3b54;color:#9fb2c8;border-radius:6px;padding:4px 6px}
-.brief-panel{display:grid;grid-template-columns:.85fr 1.15fr;gap:14px}.brief-lead{border:1px solid var(--line);border-radius:16px;background:#0d1727;padding:22px}.brief-lead h3{font-size:25px;margin:7px 0 12px}.brief-lead p{font-size:12px;color:var(--muted);line-height:1.55}.briefs{display:grid;gap:8px}.brief{border:1px solid var(--line);border-radius:12px;background:#101929;padding:12px;display:grid;grid-template-columns:30px 1fr;gap:10px}.brief>span{width:27px;height:27px;border-radius:7px;background:#172741;display:grid;place-items:center;font-size:9px;color:var(--accent);font-weight:900}.brief b{font-size:11px}.brief p{font-size:10px;color:var(--muted);line-height:1.45;margin:4px 0 0}
-.global{position:fixed;right:18px;bottom:18px;display:flex;gap:7px;padding:7px;border:1px solid #26364f;background:rgba(7,12,21,.92);border-radius:12px;backdrop-filter:blur(12px)}.global a{font-size:9px;padding:7px 9px;border-radius:7px;color:#a9b8ca}.global a:hover{background:#16233a;color:#fff}
-@media(max-width:1000px){.shell{grid-template-columns:1fr}aside{position:relative;width:auto;height:auto}main{grid-column:1}.hero,.brief-panel{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}}
-@media(max-width:650px){main{padding:0 14px 35px}.hero-copy{padding:30px 22px}.hero h2{font-size:34px}.grid{grid-template-columns:1fr}.global{display:none}}
-</style></head>
-<body><div class="shell"><aside>
-<div class="brand"><div class="mark">AI</div><div><b>IT + Knowledge</b><span>The control plane for identity, permissions, integrations, enterprise knowledge and AI lifecycle.</span></div></div>
-<div class="nav"><a class="active" href="#overview">Overview</a><a href="#capabilities">Capabilities</a><a href="#brief">Role Brief</a></div>
-<a class="back" href="enterprise.html#suites">← Back to all role suites</a>
-</aside><main>
-<header><div><div class="eyebrow">IT + KNOWLEDGE AI</div><h1>IT + Knowledge</h1></div><div class="pill">Purpose-built role intelligence</div></header>
-<section id="overview" class="hero"><div class="hero-copy"><div class="eyebrow">PERSONAL AI BY ROLE</div><h2>Make enterprise AI useful without making IT lose control of the enterprise.</h2><p>The control plane for identity, permissions, integrations, enterprise knowledge and AI lifecycle. The interface is built around the decisions, information and friction specific to this role—not around a generic chatbot.</p></div><div class="hero-viz"><div class="ring"></div><div class="ring r2"></div><div class="orb"></div></div></section>
-<div id="capabilities" class="section"><div class="eyebrow">CAPABILITIES</div><h2>What this role's AI could do</h2><p>Illustrative capabilities designed to make the work faster, clearer and more decision-ready.</p></div>
-<div class="grid"><article class="cap"><div class="cap-icon">01</div><h3>Permission-Aware Search</h3><p>Respect existing identity and access controls while letting users search approved knowledge across systems.</p><div class="chips"><span>Identity</span><span>Permissions</span><span>Search</span></div></article><article class="cap"><div class="cap-icon">02</div><h3>Enterprise Data Registry</h3><p>Map important data sources, owners, business definitions and authoritative fields across the company.</p><div class="chips"><span>Registry</span><span>Ownership</span><span>Definitions</span></div></article><article class="cap"><div class="cap-icon">03</div><h3>AI Use Registry</h3><p>Track tools, models, pilots, owners, data exposure, risk classifications and production status.</p><div class="chips"><span>Registry</span><span>Models</span><span>Risk</span></div></article><article class="cap"><div class="cap-icon">04</div><h3>Integration Orchestration</h3><p>Connect approved systems and APIs behind reusable services instead of one-off shadow integrations.</p><div class="chips"><span>APIs</span><span>Integration</span><span>Reuse</span></div></article><article class="cap"><div class="cap-icon">05</div><h3>Evaluation + Monitoring</h3><p>Test output quality, failure modes, drift and usage before and after production release.</p><div class="chips"><span>Evaluation</span><span>Quality</span><span>Monitoring</span></div></article><article class="cap"><div class="cap-icon">06</div><h3>Knowledge Lifecycle</h3><p>Identify stale sources, duplicate knowledge and content with unclear ownership before AI amplifies it.</p><div class="chips"><span>Freshness</span><span>Authority</span><span>Lifecycle</span></div></article></div>
-<div id="brief" class="section"><div class="eyebrow">ROLE INTELLIGENCE</div><h2>An IT / knowledge morning brief</h2></div>
-<div class="brief-panel"><div class="brief-lead"><div class="eyebrow">PERSONAL BRIEF</div><h3>What deserves my attention?</h3><p>The system should synthesize the role's approved data into a short decision brief—what changed, why it matters, and where the human needs to act.</p></div><div class="briefs"><div class="brief"><span>01</span><div><b>Unregistered use</b><p>A new AI workflow is touching company data but has not completed the intake process.</p></div></div><div class="brief"><span>02</span><div><b>Source health</b><p>One knowledge source used by a production assistant has stale content and needs an owner review.</p></div></div><div class="brief"><span>03</span><div><b>Access anomaly</b><p>A role-permission change affects what one AI suite should be able to retrieve.</p></div></div><div class="brief"><span>04</span><div><b>Integration reuse</b><p>Two proposed pilots need the same project-data connector and should share one governed service.</p></div></div></div></div>
+:root{--bg:#050911;--panel:#0b1320;--panel2:#0f1a2a;--line:#20344d;--text:#eef5fb;--muted:#8ea4bb;--cyan:#63dcff;--green:#66e0b8;--violet:#a78bfa;--amber:#f5c46b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,#12253b 0,#050911 42%);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}button,input{font:inherit}.shell{min-height:100vh;display:grid;grid-template-columns:244px 1fr}
+aside{position:fixed;inset:0 auto 0 0;width:244px;height:100vh;padding:20px 14px;border-right:1px solid #15263a;background:rgba(5,9,17,.95);backdrop-filter:blur(15px);z-index:10}
+.brand{display:flex;align-items:center;gap:11px;padding:4px 7px 22px}.mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--violet));display:grid;place-items:center;color:#061018;font-weight:950}.brand b{font-size:13px;display:block}.brand small{display:block;font-size:9px;color:var(--muted);margin-top:2px}
+.group{margin:12px 7px 6px;font-size:8px;color:#516c85;letter-spacing:1.5px;font-weight:900}.nav{display:grid;gap:5px}.nav a{font-size:11px;padding:10px 11px;border-radius:8px;color:#a9bbcf}.nav a:hover,.nav a.active{background:#101d30;color:#fff}.side-status{margin-top:18px;border:1px solid #1d334a;border-radius:12px;background:#0a1524;padding:12px}.side-status .row{display:flex;justify-content:space-between;font-size:9px;color:#8fa4ba;margin:7px 0}.good{color:var(--green)!important}.warn{color:var(--amber)!important}.back{position:absolute;left:14px;right:14px;bottom:16px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:10px;color:#aabbd0;background:#0b1422}
+main{grid-column:2;max-width:1600px;width:100%;margin:auto;padding:0 30px 60px}
+header{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #14253a;position:sticky;top:0;background:rgba(5,9,17,.88);backdrop-filter:blur(14px);z-index:8}.eyebrow{font-size:9px;letter-spacing:1.7px;color:var(--cyan);font-weight:900}.title{font-size:22px;margin-top:4px}.top-actions{display:flex;gap:8px}.pill{font-size:9px;border:1px solid #27405b;border-radius:999px;padding:8px 10px;color:#b9c9d9}.pill.live:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:6px;box-shadow:0 0 10px var(--green)}
+.hero{margin-top:22px;display:grid;grid-template-columns:1.1fr .9fr;gap:13px}.hero-card{border:1px solid #21384f;border-radius:20px;background:linear-gradient(135deg,#0f1d30,#08101c);padding:34px;min-height:315px}.hero-card h1{font-size:44px;line-height:1.03;letter-spacing:-1.6px;margin:9px 0 14px}.hero-card p{font-size:13px;line-height:1.65;color:var(--muted);max-width:720px}.hero-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:21px}.hero-tags span{font-size:9px;border:1px solid #28435f;background:#0b1726;border-radius:7px;padding:6px 8px;color:#b6c8d8}
+.arch{position:relative;overflow:hidden;display:grid;place-items:center;border:1px solid #21384f;border-radius:20px;background:radial-gradient(circle,rgba(99,220,255,.09),transparent 52%),#07101b}.core{width:105px;height:105px;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 35% 30%,#e7fbff,#63dcff 35%,#725bd1 68%,#141827 72%);color:#061018;font-weight:950;font-size:12px;box-shadow:0 0 80px rgba(99,220,255,.24)}.ring{position:absolute;border:1px solid rgba(99,220,255,.18);border-radius:50%;width:360px;height:180px;transform:rotate(20deg)}.ring.r2{width:450px;height:235px;transform:rotate(-29deg);opacity:.6}.orbit-tag{position:absolute;border:1px solid #28405a;border-radius:8px;background:#091522;padding:7px 9px;font-size:8px;color:#a7bfd1}.o1{left:8%;top:18%}.o2{right:7%;top:22%}.o3{left:10%;bottom:17%}.o4{right:8%;bottom:16%}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.kpi{border:1px solid #1d324a;border-radius:14px;background:#0a1320;padding:16px}.kpi span{font-size:8px;color:#6f879d;letter-spacing:1px}.kpi strong{display:block;font-size:24px;margin:7px 0 3px}.kpi small{font-size:9px;color:#8fa4b8}.section{padding-top:38px}.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:13px}.section h2{font-size:28px;margin:5px 0}.section p{font-size:11px;color:var(--muted);margin:0}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{border:1px solid #1e334b;border-radius:14px;background:#0a1422;padding:17px;min-height:178px}.card .icon{width:31px;height:31px;border-radius:8px;background:#132841;color:var(--cyan);display:grid;place-items:center;font-size:9px;font-weight:900}.card h3{font-size:13px;margin:14px 0 7px}.card p{font-size:10px;line-height:1.5;color:var(--muted)}.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}.chips span{font-size:8px;padding:4px 6px;border:1px solid #29405b;border-radius:5px;color:#93acc3}
+.workbench{display:grid;grid-template-columns:.9fr 1.1fr;gap:11px}.panel{border:1px solid #1f354d;background:#091421;border-radius:15px;padding:17px}.panel-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.panel-title b{font-size:12px}.panel-title span{font-size:8px;color:#6e879d}
+.registry{width:100%;border-collapse:collapse}.registry th{font-size:8px;color:#607b94;text-align:left;padding:9px 7px;border-bottom:1px solid #1c3147;letter-spacing:.8px}.registry td{font-size:9px;padding:10px 7px;border-bottom:1px solid #13273b;color:#b8c7d7}.status{padding:4px 6px;border-radius:999px;font-size:7px;font-weight:900;display:inline-block}.approved{background:rgba(102,224,184,.11);color:var(--green)}.pilot{background:rgba(99,220,255,.11);color:var(--cyan)}.review{background:rgba(245,196,107,.10);color:var(--amber)}
+.access-box{display:grid;grid-template-columns:1fr auto;gap:7px}.access-box input{width:100%;border:1px solid #29415a;background:#07111c;color:#eaf3fb;border-radius:9px;padding:11px;font-size:10px;outline:none}.access-box button,.btn{border:0;border-radius:9px;background:linear-gradient(135deg,var(--cyan),#9ca9ff);color:#061018;padding:10px 13px;font-weight:900;font-size:9px;cursor:pointer}.answer{margin-top:10px;border:1px solid #1f354b;border-radius:10px;background:#0c1828;padding:12px;min-height:93px;font-size:10px;color:#9fb3c7;line-height:1.5}.source{margin-top:8px;font-size:8px;color:#68849c}.flow{display:grid;grid-template-columns:repeat(5,1fr);align-items:center;gap:8px}.flow .node{border:1px solid #264058;background:#0b1725;border-radius:11px;padding:14px;text-align:center;min-height:92px}.flow .node b{font-size:10px;display:block}.flow .node span{font-size:8px;color:#7892aa;display:block;margin-top:5px;line-height:1.35}.arrow{text-align:center;color:#4f6e88;font-size:18px}
+.alerts{display:grid;gap:8px}.alert{display:grid;grid-template-columns:28px 1fr auto;gap:9px;align-items:start;border:1px solid #1f344c;background:#0a1421;border-radius:11px;padding:11px}.alert .n{width:27px;height:27px;border-radius:7px;background:#13263d;display:grid;place-items:center;font-size:8px;color:var(--cyan);font-weight:900}.alert b{font-size:10px}.alert p{font-size:9px;color:#8299ae;line-height:1.4;margin:4px 0}.sev{font-size:7px;padding:4px 6px;border-radius:999px;border:1px solid #334861;color:#a9bdcf}.governance{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.gov{border:1px solid #1d334a;background:#0b1522;border-radius:12px;padding:14px}.gov b{font-size:10px}.gov p{font-size:9px;line-height:1.45;color:#8096aa;margin-top:6px}.global{position:fixed;right:17px;bottom:17px;z-index:20;display:flex;gap:5px;border:1px solid #263b53;border-radius:11px;background:rgba(5,10,18,.92);padding:6px;backdrop-filter:blur(12px)}.global a{font-size:8px;padding:7px 8px;border-radius:6px;color:#9db0c4}.global a:hover{background:#132239;color:#fff}
+@media(max-width:1100px){.shell{grid-template-columns:1fr}aside{position:relative;width:auto;height:auto}.back{position:static;margin-top:16px}main{grid-column:1}.hero,.workbench{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.governance{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}
+@media(max-width:650px){main{padding:0 13px 50px}.grid3,.governance,.kpis{grid-template-columns:1fr}.hero-card h1{font-size:34px}.global{display:none}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside>
+  <div class="brand"><div class="mark">IT</div><div><b>IT Command</b><small>Enterprise AI Control Plane</small></div></div>
+  <div class="group">COMMAND</div>
+  <nav class="nav">
+    <a class="active" href="#overview">Executive Overview</a>
+    <a href="#control-plane">Control Plane</a>
+    <a href="#registry">AI + Data Registry</a>
+    <a href="#access">Identity + Access</a>
+    <a href="#integrations">Integrations</a>
+    <a href="#operations">AI Operations</a>
+    <a href="#governance">Governance</a>
+  </nav>
+  <div class="side-status">
+    <div class="eyebrow">SYSTEM POSTURE</div>
+    <div class="row"><span>Identity</span><span class="good">Healthy</span></div>
+    <div class="row"><span>Knowledge</span><span class="warn">2 reviews</span></div>
+    <div class="row"><span>AI registry</span><span class="good">Current</span></div>
+    <div class="row"><span>Integrations</span><span class="good">Stable</span></div>
+  </div>
+  <a class="back" href="enterprise.html#suites">← Back to Enterprise Role Suites</a>
+</aside>
+
+<main>
+<header>
+  <div><div class="eyebrow">IT + KNOWLEDGE SUITE</div><div class="title">Enterprise AI Control Plane</div></div>
+  <div class="top-actions"><div class="pill live">Environment healthy</div><div class="pill">Concept prototype</div></div>
+</header>
+
+<section id="overview">
+<div class="hero">
+  <div class="hero-card">
+    <div class="eyebrow">FOR IT LEADERSHIP</div>
+    <h1>Make AI useful.<br>Keep the enterprise under control.</h1>
+    <p>IT should not be the department asked to clean up AI after everyone else adopts it. This suite makes IT a design partner from the beginning: identity, permissions, integrations, data authority, model lifecycle, security, evaluation, auditability and knowledge health all live in the operating model.</p>
+    <div class="hero-tags"><span>Identity-first</span><span>Permission-aware</span><span>Reusable integrations</span><span>Model registry</span><span>Audit trail</span><span>Human authority</span></div>
+  </div>
+  <div class="arch"><div class="ring"></div><div class="ring r2"></div><div class="core">IT<br>CONTROL<br>PLANE</div><div class="orbit-tag o1">IDENTITY</div><div class="orbit-tag o2">KNOWLEDGE</div><div class="orbit-tag o3">INTEGRATIONS</div><div class="orbit-tag o4">AI LIFECYCLE</div></div>
+</div>
+<div class="kpis">
+  <div class="kpi"><span>REGISTERED AI USES</span><strong>14</strong><small>8 approved · 4 pilot · 2 review</small></div>
+  <div class="kpi"><span>CONNECTED SOURCES</span><strong>27</strong><small>Owned and authority-ranked</small></div>
+  <div class="kpi"><span>SHARED CONNECTORS</span><strong>6</strong><small>Reusable enterprise services</small></div>
+  <div class="kpi"><span>OPEN CONTROL ITEMS</span><strong>3</strong><small>1 access · 2 source health</small></div>
+</div>
+</section>
+
+<section id="control-plane" class="section">
+<div class="section-head"><div><div class="eyebrow">CONTROL PLANE</div><h2>IT owns the rails, not every train.</h2><p>Role teams can innovate without creating a new security architecture every time.</p></div></div>
+<div class="grid3">
+  <div class="card"><div class="icon">ID</div><h3>Identity + Permissions</h3><p>Every AI interaction inherits the user's identity and approved access. Retrieval is filtered before reasoning begins.</p><div class="chips"><span>SSO</span><span>RBAC</span><span>Least privilege</span></div></div>
+  <div class="card"><div class="icon">DR</div><h3>Enterprise Data Registry</h3><p>Map systems, owners, critical fields, business definitions, authority and freshness so AI knows which source wins.</p><div class="chips"><span>Owners</span><span>Definitions</span><span>Authority</span></div></div>
+  <div class="card"><div class="icon">KN</div><h3>Knowledge Layer</h3><p>Index approved structured and unstructured information without pretending every document has equal authority.</p><div class="chips"><span>Semantic index</span><span>Citations</span><span>Freshness</span></div></div>
+  <div class="card"><div class="icon">API</div><h3>Integration Services</h3><p>Create reusable governed connectors instead of letting every pilot create its own brittle point-to-point integration.</p><div class="chips"><span>API gateway</span><span>Reusable services</span><span>Observability</span></div></div>
+  <div class="card"><div class="icon">AI</div><h3>Model + Tool Registry</h3><p>Know what models and tools exist, what data they touch, who owns them and whether they are approved for production.</p><div class="chips"><span>Models</span><span>Tools</span><span>Ownership</span></div></div>
+  <div class="card"><div class="icon">EV</div><h3>Evaluation + Monitoring</h3><p>Test quality, safety, hallucination patterns, permissions and business outcomes before and after release.</p><div class="chips"><span>Eval</span><span>Drift</span><span>Usage</span></div></div>
+</div>
+</section>
+
+<section id="registry" class="section">
+<div class="section-head"><div><div class="eyebrow">AI + DATA REGISTRY</div><h2>Know what exists before trying to govern it.</h2><p>A visible portfolio for AI uses, connected systems, ownership and risk.</p></div></div>
+<div class="workbench">
+  <div class="panel">
+    <div class="panel-title"><b>AI Use Registry</b><span>Illustrative</span></div>
+    <table class="registry"><thead><tr><th>USE</th><th>OWNER</th><th>DATA</th><th>STATUS</th></tr></thead>
+    <tbody>
+      <tr><td>Project Knowledge Assistant</td><td>Operations</td><td>Project</td><td><span class="status approved">APPROVED</span></td></tr>
+      <tr><td>Meeting → Action Intelligence</td><td>Innovation</td><td>Project</td><td><span class="status pilot">PILOT</span></td></tr>
+      <tr><td>Forecast Variance Narrative</td><td>Finance</td><td>Financial</td><td><span class="status review">REVIEW</span></td></tr>
+      <tr><td>Role Onboarding Coach</td><td>People</td><td>HR / Policy</td><td><span class="status pilot">PILOT</span></td></tr>
+    </tbody></table>
+  </div>
+  <div class="panel">
+    <div class="panel-title"><b>Authoritative Source Registry</b><span>Illustrative</span></div>
+    <table class="registry"><thead><tr><th>SOURCE</th><th>OWNER</th><th>AUTHORITY</th><th>HEALTH</th></tr></thead>
+    <tbody>
+      <tr><td>Project Management Platform</td><td>Operations / IT</td><td>System of Record</td><td><span class="status approved">CURRENT</span></td></tr>
+      <tr><td>ERP / Financial System</td><td>Finance / IT</td><td>System of Record</td><td><span class="status approved">CURRENT</span></td></tr>
+      <tr><td>Company Policy Library</td><td>People</td><td>Authoritative</td><td><span class="status review">2 REVIEWS</span></td></tr>
+      <tr><td>Meeting Transcripts</td><td>Business Owner</td><td>Contextual</td><td><span class="status pilot">ACTIVE</span></td></tr>
+    </tbody></table>
+  </div>
+</div>
+</section>
+
+<section id="access" class="section">
+<div class="section-head"><div><div class="eyebrow">IDENTITY + ACCESS</div><h2>Permission-aware AI, by design.</h2><p>The same question can produce different retrieval based on the user's authorized context.</p></div></div>
+<div class="workbench">
+  <div class="panel">
+    <div class="panel-title"><b>Access-Aware Query Simulator</b><span>Interactive concept</span></div>
+    <div class="access-box"><input id="q" value="Show me forecast risk on Project Riverpark"><button onclick="simulate()">Ask as PM</button></div>
+    <div class="answer" id="answer">Choose the query above. The result demonstrates a design principle: retrieval should be filtered by identity and permissions before the model reasons over company information.</div>
+  </div>
+  <div class="panel">
+    <div class="panel-title"><b>Policy path</b><span>Request lifecycle</span></div>
+    <div class="alerts">
+      <div class="alert"><div class="n">01</div><div><b>Authenticate user</b><p>Resolve identity, role, project memberships and active access.</p></div><span class="sev">SSO</span></div>
+      <div class="alert"><div class="n">02</div><div><b>Filter eligible sources</b><p>Remove data the user is not entitled to retrieve before model context is assembled.</p></div><span class="sev">RBAC</span></div>
+      <div class="alert"><div class="n">03</div><div><b>Apply authority + policy</b><p>Rank approved systems of record over contextual or stale information.</p></div><span class="sev">POLICY</span></div>
+      <div class="alert"><div class="n">04</div><div><b>Reason with evidence</b><p>Return the answer with source trace and escalation when authority is insufficient.</p></div><span class="sev">AUDIT</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="integrations" class="section">
+<div class="section-head"><div><div class="eyebrow">INTEGRATION ARCHITECTURE</div><h2>Reuse the connection. Change the experience.</h2><p>One governed service can support many role-specific AI experiences.</p></div></div>
+<div class="flow">
+  <div class="node"><b>Systems of Record</b><span>Project · ERP · HR · Files · Email</span></div><div class="arrow">→</div>
+  <div class="node"><b>Governed Connectors</b><span>APIs · events · indexed content</span></div><div class="arrow">→</div>
+  <div class="node"><b>Enterprise AI Services</b><span>Identity · retrieval · reasoning · audit</span></div>
+</div>
+<div style="height:8px"></div>
+<div class="flow">
+  <div class="node"><b>PM / Super AI</b><span>Project execution</span></div>
+  <div class="node"><b>Finance AI</b><span>Cost + forecast</span></div>
+  <div class="node"><b>Precon AI</b><span>Scope + pricing</span></div>
+  <div class="node"><b>People AI</b><span>Knowledge + enablement</span></div>
+  <div class="node"><b>Executive AI</b><span>Portfolio decisions</span></div>
+</div>
+</section>
+
+<section id="operations" class="section">
+<div class="section-head"><div><div class="eyebrow">AI OPERATIONS</div><h2>What needs IT attention today?</h2><p>Operational control without forcing IT to manually inspect every interaction.</p></div></div>
+<div class="workbench">
+  <div class="panel"><div class="panel-title"><b>Control alerts</b><span>Illustrative</span></div><div class="alerts">
+    <div class="alert"><div class="n">A1</div><div><b>Unregistered workflow detected</b><p>A new automation is using company documents but has no registered business owner.</p></div><span class="sev">REVIEW</span></div>
+    <div class="alert"><div class="n">A2</div><div><b>Knowledge source aging</b><p>Two policy documents referenced by an assistant have passed their review date.</p></div><span class="sev">SOURCE</span></div>
+    <div class="alert"><div class="n">A3</div><div><b>Connector consolidation opportunity</b><p>Two pilots are requesting the same project-data integration. Build once, govern once.</p></div><span class="sev">OPTIMIZE</span></div>
+    <div class="alert"><div class="n">A4</div><div><b>Evaluation threshold passed</b><p>Project knowledge pilot has reached the agreed quality and adoption gate for scale review.</p></div><span class="sev">READY</span></div>
+  </div></div>
+  <div class="panel"><div class="panel-title"><b>IT morning brief</b><span>Decision support</span></div>
+    <div style="font-size:10px;color:#9eb2c5;line-height:1.6">
+      <b style="color:#fff">Three things deserve attention.</b><br><br>
+      1. Decide whether to approve a newly registered Finance pilot for controlled testing.<br><br>
+      2. Assign ownership for two aging policy sources before they continue feeding production answers.<br><br>
+      3. Consolidate duplicate integration requests into one reusable project-data service.<br><br>
+      <span style="color:#67ddba">No critical identity or access incidents detected.</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="governance" class="section">
+<div class="section-head"><div><div class="eyebrow">GOVERNANCE AS PRODUCT</div><h2>Guardrails people can actually work inside.</h2><p>Governance should speed up safe experimentation, not exist only as a policy document.</p></div></div>
+<div class="governance">
+  <div class="gov"><b>Identity + least privilege</b><p>User access follows existing enterprise identity and authorization.</p></div>
+  <div class="gov"><b>Source authority</b><p>Systems of record outrank contextual sources and every source has an owner.</p></div>
+  <div class="gov"><b>Human decision rights</b><p>High-impact decisions stay explicitly assigned to accountable people.</p></div>
+  <div class="gov"><b>AI use registry</b><p>Every material use has an owner, purpose, risk level and lifecycle state.</p></div>
+  <div class="gov"><b>Data boundaries</b><p>Approved data classes and model destinations are visible before deployment.</p></div>
+  <div class="gov"><b>Evaluation gates</b><p>Quality and safety are tested against use-case-specific acceptance criteria.</p></div>
+  <div class="gov"><b>Auditability</b><p>Important retrieval, tool actions and decisions can be traced and reviewed.</p></div>
+  <div class="gov"><b>Lifecycle ownership</b><p>Production AI has a named owner responsible for monitoring, change and retirement.</p></div>
+</div>
+</section>
+
 </main></div>
-<div class="global"><a href="index.html">Intro</a><a href="enterprise.html">Enterprise</a><a href="enterprise.html#suites">Role Suites</a><a href="studio.html">AI Studio</a></div>
+<div class="global"><a href="index.html">Intro</a><a href="enterprise.html">Enterprise</a><a href="enterprise.html#suites">Role Suites</a><a href="pm-super.html">Project</a><a href="finance.html">Finance</a><a href="precon.html">Precon</a><a href="studio.html">AI Studio</a></div>
+<script>
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.nav a').forEach(x=>x.classList.remove('active'));a.classList.add('active')}));
+function simulate(){
+  const q=document.getElementById('q').value.trim()||'Show me forecast risk on Project Riverpark';
+  const out=document.getElementById('answer');
+  out.innerHTML='<b style="color:#fff">PM access result</b><br><br>'+q+'<br><br><span style="color:#79d4fb">Authorized context:</span> project schedule, approved project cost summary, RFIs, submittals and project correspondence.<br><span style="color:#f5c46b">Restricted:</span> corporate payroll, unrelated project financials and executive-only portfolio notes.<div class="source">Design principle: permission filtering happens before AI reasoning, not after the answer is generated.</div>';
+}
+</script>
 </body></html>

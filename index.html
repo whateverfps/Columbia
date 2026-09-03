@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#040710"/>
+<title>Columbia AI — Working Concept by Paul Thibodeau</title>
+<style>
+:root{
+  --bg:#040710; --text:#f3f7fc; --muted:#8fa2ba;
+  --cyan:#79d8ff; --blue:#7aa7ff; --violet:#aa8cff; --line:rgba(255,255,255,.10);
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 50% 115%,rgba(63,105,190,.28),transparent 42%),
+    radial-gradient(circle at 80% 15%,rgba(117,80,195,.13),transparent 34%),
+    radial-gradient(circle at 20% 15%,rgba(62,153,214,.10),transparent 30%),
+    #040710;
+}
+.stage{position:relative;width:100%;height:100%;display:grid;place-items:center;isolation:isolate}
+.grid{
+  position:absolute;inset:45% -10% -28%;
+  background-image:
+    linear-gradient(rgba(110,164,220,.10) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(110,164,220,.10) 1px,transparent 1px);
+  background-size:60px 60px;
+  transform:perspective(700px) rotateX(64deg);
+  transform-origin:center top;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 86%);
+  opacity:.48;
+}
+.glow{
+  position:absolute;left:50%;top:52%;
+  width:min(54vw,740px);aspect-ratio:1;
+  border-radius:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(103,202,255,.12),rgba(107,105,255,.05) 35%,transparent 68%);
+  filter:blur(5px);z-index:-1;
+}
+.ring{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-14deg);
+  width:min(47vw,680px);height:min(22vw,315px);border:1px solid rgba(121,216,255,.15);border-radius:50%;
+  animation:drift 9s ease-in-out infinite alternate;
+}
+.ring.r2{transform:translate(-50%,-50%) rotate(28deg);width:min(58vw,850px);height:min(29vw,425px);opacity:.55;animation-duration:12s}
+.ring.r3{transform:translate(-50%,-50%) rotate(72deg);width:min(37vw,540px);height:min(17vw,250px);opacity:.35;animation-duration:15s}
+@keyframes drift{from{margin-top:-8px}to{margin-top:8px}}
+.particles{position:absolute;inset:0;overflow:hidden;z-index:-2}
+.particles i{
+  position:absolute;width:2px;height:2px;background:#b9e9ff;border-radius:50%;
+  box-shadow:0 0 10px rgba(121,216,255,.8);opacity:.5;
+  animation:float 9s linear infinite;
+}
+@keyframes float{0%{transform:translateY(12px);opacity:.12}50%{opacity:.65}100%{transform:translateY(-18px);opacity:.08}}
+.content{
+  width:min(1050px,90vw);
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+  transform:translateY(-2vh);
+}
+.kicker{
+  font-size:11px;letter-spacing:3.3px;font-weight:900;color:#8fdcff;
+  opacity:0;animation:reveal .8s .15s ease forwards;
+}
+.name{
+  margin-top:13px;font-size:12px;color:#8294ab;letter-spacing:1.15px;
+  opacity:0;animation:reveal .8s .3s ease forwards;
+}
+h1{
+  margin:28px 0 18px;
+  font-size:clamp(58px,8vw,118px);
+  line-height:.89;letter-spacing:-5px;font-weight:780;
+  opacity:0;animation:reveal .95s .45s ease forwards;
+}
+.gradient{
+  background:linear-gradient(95deg,#f8fbff 12%,#9bdfff 48%,#b69cff 82%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.subtitle{
+  max-width:770px;font-size:clamp(16px,1.6vw,21px);line-height:1.6;color:#9badc2;
+  margin:0;opacity:0;animation:reveal .9s .65s ease forwards;
+}
+.thesis{
+  margin:27px 0 0;padding:11px 17px;border:1px solid rgba(121,216,255,.16);
+  border-radius:999px;background:rgba(10,18,31,.42);backdrop-filter:blur(10px);
+  font-size:11px;letter-spacing:.55px;color:#bed1e4;
+  opacity:0;animation:reveal .9s .82s ease forwards;
+}
+.enter{
+  position:relative;margin-top:38px;border:0;border-radius:14px;padding:15px 25px;
+  color:#061018;background:linear-gradient(110deg,#8ee4ff,#93bcff 52%,#b29aff);
+  font-weight:900;font-size:13px;letter-spacing:.35px;cursor:pointer;
+  box-shadow:0 16px 60px rgba(97,170,255,.17);
+  opacity:0;animation:reveal .9s 1s ease forwards;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.enter:hover{transform:translateY(-2px) scale(1.015);box-shadow:0 20px 74px rgba(97,170,255,.27)}
+.enter:after{content:"→";margin-left:11px;font-size:15px}
+.footer{
+  position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;
+  font-size:10px;letter-spacing:1px;color:#53647a;opacity:0;animation:reveal .8s 1.2s ease forwards;
+}
+.corner{
+  position:absolute;top:22px;left:26px;font-size:10px;color:#597086;letter-spacing:1.4px;
+}
+.corner.right{left:auto;right:26px;text-align:right}
+@keyframes reveal{from{opacity:0;transform:translateY(10px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@media(max-width:700px){
+  h1{letter-spacing:-3px}.ring{width:90vw;height:45vw}.ring.r2{width:110vw;height:55vw}
+  .corner{display:none}.subtitle{font-size:15px}.thesis{font-size:10px}
+}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="particles">
+    <i style="left:8%;top:21%;animation-delay:-1s"></i><i style="left:18%;top:68%;animation-delay:-4s"></i>
+    <i style="left:27%;top:13%;animation-delay:-7s"></i><i style="left:34%;top:82%;animation-delay:-2s"></i>
+    <i style="left:44%;top:26%;animation-delay:-5s"></i><i style="left:51%;top:72%;animation-delay:-8s"></i>
+    <i style="left:61%;top:17%;animation-delay:-3s"></i><i style="left:69%;top:76%;animation-delay:-6s"></i>
+    <i style="left:79%;top:28%;animation-delay:-9s"></i><i style="left:91%;top:63%;animation-delay:-2s"></i>
+  </div>
+  <div class="grid"></div><div class="glow"></div>
+  <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+
+  <div class="corner">WORKING CONCEPT / 2026</div>
+  <div class="corner right">COLUMBIA<br>ENTERPRISE AI</div>
+
+  <main class="content">
+    <div class="kicker">IMAGINED FOR COLUMBIA</div>
+    <div class="name">A working concept by Paul Thibodeau</div>
+
+    <h1>What if the company<br><span class="gradient">could think together?</span></h1>
+
+    <p class="subtitle">
+      Not another chatbot. Not AI bolted onto the side of the business.
+      A connected intelligence layer built around the way Columbia's people actually work.
+    </p>
+
+    <div class="thesis">ONE ENTERPRISE FOUNDATION · PERSONAL AI BY ROLE · HUMAN AUTHORITY BUILT IN</div>
+
+    <button class="enter" onclick="location.href='enterprise.html'">Enter the experience</button>
+  </main>
+
+  <div class="footer">BUILT TO START A CONVERSATION — NOT PRETEND THE ANSWERS ARE ALREADY KNOWN</div>
+</div>
+</body>
+</html>

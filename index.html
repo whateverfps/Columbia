@@ -89,16 +89,30 @@ h1{
   font-size:11px;letter-spacing:.55px;color:#bed1e4;
   opacity:0;animation:reveal .9s .82s ease forwards;
 }
+.actions{
+  margin-top:38px;display:flex;align-items:center;justify-content:center;gap:11px;
+  opacity:0;animation:reveal .9s 1s ease forwards;
+}
 .enter{
-  position:relative;margin-top:38px;border:0;border-radius:14px;padding:15px 25px;
+  position:relative;margin-top:0;border:0;border-radius:14px;padding:15px 25px;
   color:#061018;background:linear-gradient(110deg,#8ee4ff,#93bcff 52%,#b29aff);
   font-weight:900;font-size:13px;letter-spacing:.35px;cursor:pointer;
   box-shadow:0 16px 60px rgba(97,170,255,.17);
-  opacity:0;animation:reveal .9s 1s ease forwards;
   transition:transform .2s ease,box-shadow .2s ease;
 }
 .enter:hover{transform:translateY(-2px) scale(1.015);box-shadow:0 20px 74px rgba(97,170,255,.27)}
 .enter:after{content:"→";margin-left:11px;font-size:15px}
+.journey{
+  border:1px solid rgba(121,216,255,.24);border-radius:14px;padding:14px 20px;
+  color:#b9d0e3;background:rgba(8,16,29,.50);backdrop-filter:blur(10px);
+  font-weight:800;font-size:12px;letter-spacing:.3px;cursor:pointer;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;
+}
+.journey:hover{
+  transform:translateY(-2px);border-color:rgba(121,216,255,.48);
+  background:rgba(15,30,50,.68);color:#eef8ff;
+}
+.journey:after{content:"↗";margin-left:9px;color:#79d8ff}
 .footer{
   position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;
   font-size:10px;letter-spacing:1px;color:#53647a;opacity:0;animation:reveal .8s 1.2s ease forwards;
@@ -111,6 +125,8 @@ h1{
 @media(max-width:700px){
   h1{letter-spacing:-3px}.ring{width:90vw;height:45vw}.ring.r2{width:110vw;height:55vw}
   .corner{display:none}.subtitle{font-size:15px}.thesis{font-size:10px}
+  .actions{flex-direction:column;width:min(320px,90vw)}
+  .enter,.journey{width:100%}
 }
 </style>
 </head>
@@ -142,7 +158,10 @@ h1{
 
     <div class="thesis">ONE ENTERPRISE FOUNDATION · PERSONAL AI BY ROLE · HUMAN AUTHORITY BUILT IN</div>
 
-    <button class="enter" onclick="location.href='enterprise.html'">Enter the experience</button>
+    <div class="actions">
+      <button class="enter" onclick="location.href='enterprise.html'">Enter the experience</button>
+      <button class="journey" onclick="location.href='journey.html'">See the journey</button>
+    </div>
   </main>
 
   <div class="footer">BUILT TO START A CONVERSATION — NOT PRETEND THE ANSWERS ARE ALREADY KNOWN</div>

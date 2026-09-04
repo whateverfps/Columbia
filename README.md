@@ -7,7 +7,7 @@ Open `index.html`.
 
 ## Experience flow
 - `index.html` — cinematic personal introduction by Paul Thibodeau
-- `enterprise.html` — company Enterprise AI Suite
+- `enterprise.html` — C-Suite AI Suite / Company Steering Wheel
 - `pm-super.html` — PM + Superintendent personal AI suite
 - `finance.html` — Finance personal AI suite
 - `studio.html` — broader AI Studio / program concept

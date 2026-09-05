@@ -102,17 +102,21 @@ h1{
 }
 .enter:hover{transform:translateY(-2px) scale(1.015);box-shadow:0 20px 74px rgba(97,170,255,.27)}
 .enter:after{content:"→";margin-left:11px;font-size:15px}
-.journey{
+.journey,
+.film{
   border:1px solid rgba(121,216,255,.24);border-radius:14px;padding:14px 20px;
   color:#b9d0e3;background:rgba(8,16,29,.50);backdrop-filter:blur(10px);
   font-weight:800;font-size:12px;letter-spacing:.3px;cursor:pointer;
   transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;
 }
-.journey:hover{
+.journey:hover,
+.film:hover{
   transform:translateY(-2px);border-color:rgba(121,216,255,.48);
   background:rgba(15,30,50,.68);color:#eef8ff;
 }
 .journey:after{content:"↗";margin-left:9px;color:#79d8ff}
+.film:after{content:"▶";margin-left:10px;color:#79d8ff;font-size:11px}
+.film{border:1px solid rgba(121,216,255,.24);border-radius:14px;padding:14px 20px;color:#dcecff;background:rgba(8,16,29,.50);backdrop-filter:blur(10px);font-weight:800;font-size:12px;letter-spacing:.3px;cursor:pointer;transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;}
 .footer{
   position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;
   font-size:10px;letter-spacing:1px;color:#53647a;opacity:0;animation:reveal .8s 1.2s ease forwards;
@@ -126,7 +130,7 @@ h1{
   h1{letter-spacing:-3px}.ring{width:90vw;height:45vw}.ring.r2{width:110vw;height:55vw}
   .corner{display:none}.subtitle{font-size:15px}.thesis{font-size:10px}
   .actions{flex-direction:column;width:min(320px,90vw)}
-  .enter,.journey{width:100%}
+  .enter,.journey,.film{width:100%}
 }
 </style>
 </head>
@@ -161,6 +165,7 @@ h1{
     <div class="actions">
       <button class="enter" onclick="location.href='enterprise.html'">Enter the experience</button>
       <button class="journey" onclick="location.href='journey.html'">See the journey</button>
+      <button class="film" onclick="window.open('Columbia_Enterprise_AI_Film.mp4','_blank')">Watch the film</button>
     </div>
   </main>
 

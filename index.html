@@ -90,7 +90,7 @@ h1{
   opacity:0;animation:reveal .9s .82s ease forwards;
 }
 .actions{
-  margin-top:38px;display:flex;align-items:center;justify-content:center;gap:11px;
+  margin-top:38px;display:flex;align-items:center;justify-content:center;gap:11px;flex-wrap:wrap;
   opacity:0;animation:reveal .9s 1s ease forwards;
 }
 .enter{
@@ -103,19 +103,22 @@ h1{
 .enter:hover{transform:translateY(-2px) scale(1.015);box-shadow:0 20px 74px rgba(97,170,255,.27)}
 .enter:after{content:"→";margin-left:11px;font-size:15px}
 .journey,
-.film{
+.film,
+.chief-btn{
   border:1px solid rgba(121,216,255,.24);border-radius:14px;padding:14px 20px;
   color:#b9d0e3;background:rgba(8,16,29,.50);backdrop-filter:blur(10px);
   font-weight:800;font-size:12px;letter-spacing:.3px;cursor:pointer;
   transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;
 }
 .journey:hover,
-.film:hover{
+.film:hover,
+.chief-btn:hover{
   transform:translateY(-2px);border-color:rgba(121,216,255,.48);
   background:rgba(15,30,50,.68);color:#eef8ff;
 }
 .journey:after{content:"↗";margin-left:9px;color:#79d8ff}
 .film:after{content:"▶";margin-left:10px;color:#79d8ff;font-size:11px}
+.chief-btn:after{content:"✦";margin-left:10px;color:#79d8ff;font-size:12px}
 .film{border:1px solid rgba(121,216,255,.24);border-radius:14px;padding:14px 20px;color:#dcecff;background:rgba(8,16,29,.50);backdrop-filter:blur(10px);font-weight:800;font-size:12px;letter-spacing:.3px;cursor:pointer;transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;}
 .footer{
   position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;
@@ -130,8 +133,87 @@ h1{
   h1{letter-spacing:-3px}.ring{width:90vw;height:45vw}.ring.r2{width:110vw;height:55vw}
   .corner{display:none}.subtitle{font-size:15px}.thesis{font-size:10px}
   .actions{flex-direction:column;width:min(320px,90vw)}
-  .enter,.journey,.film{width:100%}
+  .enter,.journey,.film,.chief-btn{width:100%}
 }
+
+
+
+/* MEET CHIEF — centerpiece character demonstration */
+.chief-btn{
+  border:1px solid rgba(121,216,255,.34);border-radius:14px;padding:14px 20px;
+  color:#f0fbff;background:linear-gradient(135deg,rgba(8,33,54,.82),rgba(37,19,67,.72));
+  backdrop-filter:blur(10px);font-weight:900;font-size:12px;letter-spacing:.35px;cursor:pointer;
+  box-shadow:0 12px 38px rgba(59,163,255,.12),inset 0 0 0 1px rgba(255,255,255,.025);
+  transition:.22s ease;
+}
+.chief-btn:hover{transform:translateY(-2px);border-color:rgba(121,216,255,.7);box-shadow:0 18px 46px rgba(59,163,255,.18)}
+.chief-btn:after{content:"✦";margin-left:10px;color:#79d8ff;font-size:12px}
+
+.chief-demo{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(1,4,10,.92);backdrop-filter:blur(22px)}
+.chief-demo.open{display:flex;animation:chiefDemoFade .32s ease both}
+@keyframes chiefDemoFade{from{opacity:0}to{opacity:1}}
+.demo-shell{position:relative;width:min(1240px,97vw);height:min(760px,94vh);overflow:hidden;border:1px solid rgba(121,216,255,.2);border-radius:30px;background:
+ radial-gradient(circle at 18% 24%,rgba(35,153,229,.15),transparent 32%),
+ radial-gradient(circle at 83% 16%,rgba(133,84,255,.16),transparent 31%),
+ radial-gradient(circle at 58% 88%,rgba(49,207,190,.07),transparent 31%),
+ linear-gradient(180deg,#07101c 0%,#040812 100%);
+ box-shadow:0 50px 140px rgba(0,0,0,.66),0 0 0 1px rgba(255,255,255,.025) inset}
+.demo-shell:before{content:"";position:absolute;inset:58px 0 0;pointer-events:none;background-image:linear-gradient(rgba(121,216,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(121,216,255,.028) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 92%)}
+.demo-top{height:58px;display:flex;align-items:center;gap:12px;padding:0 20px;border-bottom:1px solid rgba(255,255,255,.075);background:rgba(2,8,16,.72);position:relative;z-index:5}
+.demo-dots{display:flex;gap:7px}.demo-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.17)}
+.demo-title{font-size:11px;font-weight:950;letter-spacing:1.9px;color:#e4f2fd}.demo-sub{font-size:10px;color:#627c94;letter-spacing:.8px;margin-left:4px}
+.demo-badge{margin-left:auto;padding:7px 10px;border:1px solid rgba(121,216,255,.16);border-radius:999px;color:#84d8f4;background:rgba(15,40,61,.44);font-size:9px;font-weight:900;letter-spacing:1.1px}
+.demo-close{width:34px;height:34px;border:1px solid rgba(255,255,255,.09);border-radius:10px;background:rgba(255,255,255,.03);color:#a7bdd1;font-size:18px;cursor:pointer;transition:.2s ease}.demo-close:hover{background:rgba(255,255,255,.08);color:white}
+
+.chief-stage{position:relative;height:calc(100% - 58px);overflow:hidden}
+.chief-horizon{position:absolute;left:0;right:0;bottom:73px;height:1px;background:linear-gradient(90deg,transparent,rgba(121,216,255,.18) 22%,rgba(121,216,255,.18) 78%,transparent)}
+.chief-horizon:after{content:"";position:absolute;left:12%;right:12%;top:1px;height:110px;background:radial-gradient(ellipse at center,rgba(53,161,224,.08),transparent 66%);transform:perspective(300px) rotateX(62deg);transform-origin:top}
+
+.chief-character-zone{position:absolute;left:2%;top:7%;bottom:70px;width:42%;display:flex;align-items:center;justify-content:center;z-index:3}
+.chief-glow{position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(78,190,255,.14),rgba(86,77,218,.05) 45%,transparent 70%);filter:blur(2px);animation:chiefGlow 3.8s ease-in-out infinite}
+@keyframes chiefGlow{0%,100%{transform:scale(.96);opacity:.65}50%{transform:scale(1.07);opacity:1}}
+.chief-orbit{position:absolute;width:330px;height:330px;border:1px solid rgba(121,216,255,.12);border-radius:50%;animation:orbitSpin 18s linear infinite}.chief-orbit.o2{width:278px;height:278px;border-style:dashed;animation-duration:12s;animation-direction:reverse;opacity:.65}
+.chief-orbit:before,.chief-orbit:after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#7ad9ff;box-shadow:0 0 18px #66cfff}.chief-orbit:before{left:12%;top:18%}.chief-orbit:after{right:8%;bottom:24%;background:#a488ff;box-shadow:0 0 18px #9a7fff}
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+.chief-platform{position:absolute;bottom:58px;width:250px;height:30px;border-radius:50%;background:radial-gradient(ellipse,rgba(85,194,255,.24),rgba(77,106,255,.05) 50%,transparent 72%);filter:blur(.2px);box-shadow:0 0 40px rgba(73,177,255,.16)}
+.chief-avatar{position:relative;width:315px;height:315px;display:flex;align-items:flex-end;justify-content:center;transform:translateY(8px);filter:drop-shadow(0 22px 18px rgba(0,0,0,.35));transition:transform .5s cubic-bezier(.2,.8,.2,1),filter .35s ease;z-index:4}
+.chief-avatar img{width:100%;height:100%;object-fit:contain;object-position:center bottom;user-select:none;-webkit-user-drag:none}
+.chief-avatar.bounce{animation:chiefBounce .48s ease}
+@keyframes chiefBounce{0%,100%{transform:translateY(8px)}45%{transform:translateY(-8px) rotate(-1deg)}}
+.chief-avatar.walking{animation:chiefWalkAcross 2.2s ease both}
+@keyframes chiefWalkAcross{0%{transform:translate(-145px,8px) scale(.92);opacity:.2}100%{transform:translate(0,8px) scale(1);opacity:1}}
+.chief-nameplate{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);text-align:center;z-index:5;white-space:nowrap}
+.chief-nameplate b{font-size:20px;letter-spacing:.4px}.chief-nameplate span{display:block;margin-top:5px;font-size:9px;color:#6d859d;letter-spacing:1.4px;font-weight:900}
+.status-pill{display:inline-flex;align-items:center;gap:7px;margin-top:9px;padding:6px 10px;border:1px solid rgba(121,216,255,.13);border-radius:999px;background:rgba(8,22,35,.62);font-size:9px;color:#8fcfe7;letter-spacing:.7px}.status-pill i{width:6px;height:6px;border-radius:50%;background:#74ddbc;box-shadow:0 0 12px rgba(116,221,188,.85)}
+
+.speech{position:absolute;left:24%;top:6%;width:min(330px,31vw);padding:15px 17px;border-radius:18px 18px 18px 5px;border:1px solid rgba(121,216,255,.16);background:rgba(8,18,31,.86);box-shadow:0 18px 50px rgba(0,0,0,.3);z-index:8;opacity:0;transform:translateY(8px) scale(.97);transition:.35s ease}.speech.show{opacity:1;transform:translateY(0) scale(1)}
+.speech .who{font-size:8px;font-weight:950;letter-spacing:1.6px;color:#72caed;margin-bottom:7px}.speech .say{font-size:14px;line-height:1.5;color:#e8f5ff}.speech:after{content:"";position:absolute;left:28px;bottom:-9px;border:9px solid transparent;border-top-color:rgba(8,18,31,.9);border-bottom:0;transform:rotate(18deg)}
+
+.chief-workspace{position:absolute;right:3.2%;top:6.2%;bottom:76px;width:54%;z-index:2}
+.work-card{position:absolute;inset:0;border:1px solid rgba(255,255,255,.075);border-radius:23px;background:linear-gradient(180deg,rgba(9,18,31,.82),rgba(5,11,21,.69));box-shadow:0 26px 80px rgba(0,0,0,.28);overflow:hidden}
+.work-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(107,85,255,.08),transparent 34%);pointer-events:none}
+.work-head{height:54px;display:flex;align-items:center;padding:0 18px;border-bottom:1px solid rgba(255,255,255,.07)}
+.work-label{font-size:9px;font-weight:950;letter-spacing:1.6px;color:#6d849b}.work-phase{margin-left:auto;font-size:9px;color:#75ccea;letter-spacing:.7px}
+.work-body{position:relative;height:calc(100% - 54px);padding:26px 28px}
+.demo-scene{position:absolute;inset:26px 28px;opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .5s ease,transform .5s ease}.demo-scene.active{opacity:1;transform:translateY(0)}
+.kicker2{font-size:9px;font-weight:950;letter-spacing:1.9px;color:#72cdef;margin-bottom:10px}.demo-scene h2{font-size:clamp(25px,2.6vw,38px);line-height:1.04;letter-spacing:-1.25px;margin:0 0 12px}.demo-copy{color:#849ab0;font-size:13px;line-height:1.62;max-width:610px}
+
+.user-command{margin-top:24px;border:1px solid rgba(121,216,255,.13);border-radius:16px;padding:17px 18px;background:rgba(12,25,41,.58)}.command-label{font-size:8px;letter-spacing:1.4px;font-weight:950;color:#617b94;margin-bottom:9px}.command-text{font-size:17px;line-height:1.5;color:#edf8ff}.typing-cursor{display:inline-block;width:7px;height:18px;margin-left:3px;vertical-align:-3px;background:#7bdcff;animation:blink .75s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+
+.file-swarm{position:relative;height:285px;margin-top:12px}.file-chip{position:absolute;width:150px;padding:13px 14px;border-radius:14px;border:1px solid rgba(121,216,255,.11);background:rgba(10,22,36,.76);box-shadow:0 15px 38px rgba(0,0,0,.2);opacity:0;transform:scale(.82) translateY(12px);transition:.65s cubic-bezier(.2,.8,.2,1)}.file-chip.arrive{opacity:1;transform:scale(1) translateY(0)}.file-chip b{display:block;font-size:11px;color:#dcebf7}.file-chip span{display:block;font-size:8px;margin-top:5px;color:#657e95;letter-spacing:.5px}.fc1{left:2%;top:7%}.fc2{right:2%;top:4%}.fc3{left:16%;bottom:8%}.fc4{right:12%;bottom:12%}.fc5{left:39%;top:38%}.scanline{position:absolute;left:10%;right:10%;top:50%;height:1px;background:linear-gradient(90deg,transparent,#7addff,transparent);box-shadow:0 0 14px rgba(122,221,255,.7);opacity:0}.scanline.go{animation:scanMove 2.4s ease-in-out infinite;opacity:1}@keyframes scanMove{0%,100%{transform:translateY(-100px);opacity:.15}50%{transform:translateY(105px);opacity:.9}}
+
+.reason-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:21px}.metric{padding:17px 15px;border-radius:15px;border:1px solid rgba(255,255,255,.075);background:rgba(255,255,255,.025)}.metric strong{display:block;font-size:30px;letter-spacing:-1px}.metric span{display:block;margin-top:5px;font-size:8px;color:#70869d;letter-spacing:1px;font-weight:900}.metric.risk strong{color:#ffcf73}.metric.decision strong{color:#8edcff}
+.finding-box{margin-top:14px;padding:16px 17px;border-left:2px solid #79d8ff;background:linear-gradient(90deg,rgba(64,158,221,.09),transparent);color:#cfe2ef;font-size:13px;line-height:1.55}.finding-box b{color:white}
+
+.artifact-card{margin-top:18px;border:1px solid rgba(121,216,255,.16);border-radius:17px;overflow:hidden;background:rgba(7,16,28,.78);transform:translateY(10px);opacity:.2;transition:.65s ease}.artifact-card.ready{transform:translateY(0);opacity:1}.artifact-top{display:flex;align-items:center;padding:13px 15px;border-bottom:1px solid rgba(255,255,255,.07);font-size:9px;color:#71889f}.artifact-top b{margin-right:auto;color:#e1eef8;font-size:11px}.artifact-content{padding:16px}.artifact-title{font-size:16px;font-weight:900;margin-bottom:12px}.brief-row{display:grid;grid-template-columns:80px 1fr;gap:12px;padding:8px 0;border-top:1px solid rgba(255,255,255,.05);font-size:10px}.brief-row:first-of-type{border-top:0}.brief-row span:first-child{color:#678198;font-weight:900;letter-spacing:.5px}.brief-row span:last-child{color:#c7d9e7}.human-lock{display:inline-flex;align-items:center;gap:7px;margin-top:13px;padding:7px 9px;border-radius:999px;background:rgba(83,202,167,.07);border:1px solid rgba(83,202,167,.14);font-size:8px;color:#7ad1b8;letter-spacing:.8px;font-weight:900}.human-lock i{width:6px;height:6px;border-radius:50%;background:#73d9ba}
+
+.final-proof{height:100%;display:flex;flex-direction:column;justify-content:center}.final-proof h2{font-size:clamp(31px,3.4vw,49px);max-width:600px}.final-proof h2 span{background:linear-gradient(90deg,#83ddff,#aa91ff);-webkit-background-clip:text;background-clip:text;color:transparent}.proof-line{margin-top:16px;color:#8da4b9;font-size:13px;line-height:1.6;max-width:550px}.proof-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.proof-tags span{padding:7px 10px;border:1px solid rgba(255,255,255,.08);border-radius:999px;color:#7791a7;font-size:8px;letter-spacing:.8px;font-weight:900}
+
+.demo-controls{position:absolute;left:4%;right:4%;bottom:19px;display:flex;align-items:center;gap:12px;z-index:10}.progress-track{height:3px;flex:1;background:rgba(255,255,255,.07);border-radius:999px;overflow:hidden}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#7cddff,#9e86ff);box-shadow:0 0 14px rgba(121,216,255,.55)}.demo-time{width:60px;text-align:right;font-size:9px;color:#697f94;font-variant-numeric:tabular-nums}.replay{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#91a7bb;border-radius:9px;padding:7px 10px;font-size:9px;cursor:pointer}
+
+@media(max-width:900px){.chief-demo{padding:8px}.demo-shell{height:97vh}.demo-sub{display:none}.chief-character-zone{left:0;top:4%;width:39%}.chief-avatar{width:255px;height:255px}.chief-glow{width:280px;height:280px}.chief-orbit{width:270px;height:270px}.chief-orbit.o2{width:230px;height:230px}.chief-workspace{right:2%;width:59%;top:5%;bottom:72px}.speech{left:15%;top:3%;width:260px}.work-body{padding:20px}.demo-scene{inset:20px}.reason-grid{grid-template-columns:1fr}.metric{padding:10px}.metric strong{font-size:22px}.file-chip{width:125px}}
+@media(max-width:680px){.chief-character-zone{position:absolute;left:0;right:0;top:1%;width:100%;height:245px;bottom:auto;pointer-events:none}.chief-avatar{width:205px;height:205px}.chief-glow{width:220px;height:220px}.chief-orbit{width:218px;height:218px}.chief-orbit.o2{width:185px;height:185px}.chief-nameplate{display:none}.speech{left:8%;right:8%;top:190px;width:auto}.chief-workspace{left:3%;right:3%;width:auto;top:270px;bottom:62px}.work-card{border-radius:18px}.work-head{height:44px}.work-body{height:calc(100% - 44px);padding:16px}.demo-scene{inset:16px}.demo-scene h2{font-size:24px}.demo-copy{font-size:11px}.file-swarm{height:220px}.file-chip{width:112px;padding:10px}.reason-grid{grid-template-columns:repeat(3,1fr);gap:5px}.metric strong{font-size:20px}.metric span{font-size:7px}.demo-badge{display:none}.chief-horizon{display:none}}
+
 </style>
 </head>
 <body>
@@ -164,6 +246,7 @@ h1{
 
     <div class="actions">
       <button class="enter" onclick="location.href='enterprise.html'">Enter the experience</button>
+      <button class="chief-btn" onclick="openChiefDemo()">Meet Chief</button>
       <button class="journey" onclick="location.href='journey.html'">See the journey</button>
       <button class="film" onclick="window.open('assets/video/Columbia_Enterprise_AI_Film.mp4','_blank')">Watch the film</button>
     </div>
@@ -171,5 +254,187 @@ h1{
 
   <div class="footer">BUILT TO START A CONVERSATION — NOT PRETEND THE ANSWERS ARE ALREADY KNOWN</div>
 </div>
+
+
+
+<div class="chief-demo" id="chiefDemo" aria-hidden="true">
+  <section class="demo-shell" role="dialog" aria-modal="true" aria-label="Meet Chief coded demonstration">
+    <header class="demo-top">
+      <div class="demo-dots"><i></i><i></i><i></i></div>
+      <div class="demo-title">CHIEF</div><div class="demo-sub">WORKING AI ASSISTANT · CODED PRODUCT DEMO</div>
+      <div class="demo-badge">DETERMINISTIC DEMO · NO LIVE DATA</div>
+      <button class="demo-close" aria-label="Close demonstration" onclick="closeChiefDemo()">×</button>
+    </header>
+
+    <div class="chief-stage">
+      <div class="chief-horizon"></div>
+
+      <section class="chief-character-zone" aria-label="Animated Chief character">
+        <div class="chief-glow"></div><div class="chief-orbit"></div><div class="chief-orbit o2"></div>
+        <div class="chief-platform"></div>
+        <div class="chief-avatar walking" id="chiefAvatar"><img id="chiefImage" src="assets/chief/wave.png" alt="Chief, animated construction engineer assistant"></div>
+        <div class="chief-nameplate"><b>Chief</b><span>AI THAT WORKS WITH YOU</span><div class="status-pill"><i></i><span id="chiefStatus">Online</span></div></div>
+      </section>
+
+      <div class="speech" id="chiefSpeech"><div class="who">CHIEF</div><div class="say" id="chiefSpeechText">Morning. Give me the objective.</div></div>
+
+      <section class="chief-workspace">
+        <div class="work-card">
+          <div class="work-head"><div class="work-label">PROJECT WORKSPACE</div><div class="work-phase" id="workPhase">READY</div></div>
+          <div class="work-body">
+            <section class="demo-scene active" data-scene="0">
+              <div class="kicker2">01 · START WITH THE OUTCOME</div>
+              <h2>Chief doesn't wait for a menu of clicks.</h2>
+              <div class="demo-copy">Give him the result you need. He can find the path through the information and tools already there.</div>
+              <div class="user-command"><div class="command-label">PAUL</div><div class="command-text"><span id="typedPrompt"></span><span class="typing-cursor"></span></div></div>
+            </section>
+
+            <section class="demo-scene" data-scene="1">
+              <div class="kicker2">02 · SEARCH THE WORK, NOT JUST THE WEB</div>
+              <h2>He gathers the project evidence.</h2>
+              <div class="demo-copy">Registers, submittals, meeting commitments, drawings and specifications come together around the objective.</div>
+              <div class="file-swarm">
+                <div class="file-chip fc1"><b>Project Register</b><span>OPEN ITEMS · OWNERS</span></div>
+                <div class="file-chip fc2"><b>Submittal Log</b><span>DUE DATES · STATUS</span></div>
+                <div class="file-chip fc3"><b>Meeting Notes</b><span>DECISIONS · FOLLOW-UPS</span></div>
+                <div class="file-chip fc4"><b>Drawings + Specs</b><span>TECHNICAL EVIDENCE</span></div>
+                <div class="file-chip fc5"><b>Schedule</b><span>DEPENDENCIES</span></div>
+                <div class="scanline" id="scanline"></div>
+              </div>
+            </section>
+
+            <section class="demo-scene" data-scene="2">
+              <div class="kicker2">03 · CONNECT WHAT MATTERS</div>
+              <h2>Chief turns information into attention.</h2>
+              <div class="reason-grid">
+                <div class="metric"><strong>3</strong><span>PRIORITIES</span></div>
+                <div class="metric risk"><strong>1</strong><span>SCHEDULE RISK</span></div>
+                <div class="metric decision"><strong>2</strong><span>DECISIONS NEEDED</span></div>
+              </div>
+              <div class="finding-box"><b>Highest attention:</b> unresolved electrical coordination may affect the next installation sequence. Supporting references are attached.</div>
+            </section>
+
+            <section class="demo-scene" data-scene="3">
+              <div class="kicker2">04 · TURN THE CONVERSATION INTO WORK</div>
+              <h2>Then Chief builds the first deliverable.</h2>
+              <div class="demo-copy">No hunting through folders. No copy-and-paste relay. The evidence follows the work product.</div>
+              <div class="artifact-card" id="artifactCard">
+                <div class="artifact-top"><b>PROJECT MEETING BRIEF</b><span>DRAFT · 5 SOURCES</span></div>
+                <div class="artifact-content">
+                  <div class="artifact-title">10:00 Project Coordination — Attention Brief</div>
+                  <div class="brief-row"><span>PRIORITY 01</span><span>Resolve electrical feeder/equipment coordination before installation release.</span></div>
+                  <div class="brief-row"><span>PRIORITY 02</span><span>Two submittal decisions are approaching schedule impact.</span></div>
+                  <div class="brief-row"><span>FOLLOW-UP</span><span>Meeting commitments mapped back to accountable owners.</span></div>
+                  <div class="human-lock"><i></i> HUMAN REVIEW · AUTHORITY STAYS WITH THE TEAM</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="demo-scene" data-scene="4">
+              <div class="final-proof">
+                <div class="kicker2">WORKING PROOF</div>
+                <h2>Useful AI should feel less like software — and more like <span>another capable person on the team.</span></h2>
+                <div class="proof-line">Chief is one working interface to the larger Columbia Enterprise AI concept: connected intelligence, role-specific capability, and human authority built in.</div>
+                <div class="proof-tags"><span>REASON</span><span>RETRIEVE</span><span>CREATE</span><span>USE TOOLS</span><span>HUMAN AUTHORITY</span></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <div class="demo-controls">
+        <button class="replay" onclick="restartChiefDemo()">REPLAY</button>
+        <div class="progress-track"><div class="progress-bar" id="demoProgress"></div></div>
+        <div class="demo-time" id="demoTime">0:00 / 0:44</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+const chiefDemo=document.getElementById('chiefDemo');
+const scenes=[...document.querySelectorAll('.demo-scene')];
+const progress=document.getElementById('demoProgress');
+const demoTime=document.getElementById('demoTime');
+const chiefImage=document.getElementById('chiefImage');
+const chiefAvatar=document.getElementById('chiefAvatar');
+const chiefStatus=document.getElementById('chiefStatus');
+const chiefSpeech=document.getElementById('chiefSpeech');
+const chiefSpeechText=document.getElementById('chiefSpeechText');
+const typedPrompt=document.getElementById('typedPrompt');
+const workPhase=document.getElementById('workPhase');
+const scanline=document.getElementById('scanline');
+const artifactCard=document.getElementById('artifactCard');
+
+const totalDemo=44;
+const sceneStarts=[0,9,18,27,36];
+let demoStart=0,demoTimer=null,typingTimer=null,walkTimer=null,lastScene=-1,lastPose='';
+const posePath=name=>`assets/chief/${name}.png`;
+
+function pose(name,bounce=false){
+  if(lastPose===name && !bounce) return;
+  lastPose=name; chiefImage.src=posePath(name);
+  if(bounce){chiefAvatar.classList.remove('bounce');void chiefAvatar.offsetWidth;chiefAvatar.classList.add('bounce')}
+}
+function say(text,show=true){chiefSpeechText.textContent=text;chiefSpeech.classList.toggle('show',show)}
+function setPhase(text,status){workPhase.textContent=text;chiefStatus.textContent=status||text}
+function typePrompt(){
+  const text='Chief, get me ready for the 10:00 project meeting. Tell me what needs attention.';
+  typedPrompt.textContent='';let i=0;clearInterval(typingTimer);
+  typingTimer=setInterval(()=>{typedPrompt.textContent=text.slice(0,++i);if(i>=text.length)clearInterval(typingTimer)},30);
+}
+function walkIn(){
+  const frames=['walk1','walk2','walk3','walk4','walk5','walk6','walk7','walk8','walk9','walk10','walk11','walk12'];let i=0;
+  clearInterval(walkTimer);chiefAvatar.classList.add('walking');
+  walkTimer=setInterval(()=>{chiefImage.src=posePath(frames[i++%frames.length]);if(i>13){clearInterval(walkTimer);chiefAvatar.classList.remove('walking');pose('wave',true)}},115);
+}
+function resetEffects(){
+  document.querySelectorAll('.file-chip').forEach(x=>x.classList.remove('arrive'));
+  scanline.classList.remove('go');artifactCard.classList.remove('ready');
+}
+function setScene(index){
+  if(index===lastScene)return;lastScene=index;
+  scenes.forEach((s,i)=>s.classList.toggle('active',i===index));
+  if(index===0){
+    resetEffects();setPhase('READY','Listening');pose('wave',true);say('Morning. Give me the objective.',true);typePrompt();
+    setTimeout(()=>{if(lastScene===0){pose('greet');say('Got it. I’ll pull the project picture together.')}},4300);
+  }
+  if(index===1){
+    setPhase('RETRIEVING','Searching project information');pose('searching',true);say('I’m checking the register, submittals, commitments, drawings and schedule.');
+    document.querySelectorAll('.file-chip').forEach((x,i)=>setTimeout(()=>x.classList.add('arrive'),300+i*430));
+    setTimeout(()=>scanline.classList.add('go'),650);
+    setTimeout(()=>{if(lastScene===1){pose('processing');setPhase('CROSS-CHECKING','Cross-checking dependencies')}},4400);
+  }
+  if(index===2){
+    setPhase('REASONING','Connecting evidence');pose('thinking',true);say('I found three priorities. One can affect the next installation sequence.');
+    setTimeout(()=>{if(lastScene===2)pose('explain')},4200);
+  }
+  if(index===3){
+    setPhase('CREATING','Building work product');pose('writing',true);say('I’ll turn that into a meeting brief and keep the supporting evidence with it.');
+    setTimeout(()=>artifactCard.classList.add('ready'),900);
+    setTimeout(()=>{if(lastScene===3){pose('save',true);setPhase('DRAFT READY','Draft complete');say('Brief ready. The decisions still belong to the team.')}},4800);
+  }
+  if(index===4){
+    setPhase('READY','Ready');pose('celebration',true);say('That’s the idea: give me the objective — I’ll help move the work.',true);
+    setTimeout(()=>{if(lastScene===4)pose('wave')},4300);
+  }
+}
+function tick(){
+  const e=Math.min((performance.now()-demoStart)/1000,totalDemo);
+  let idx=0;for(let i=0;i<sceneStarts.length;i++){if(e>=sceneStarts[i])idx=i;else break}
+  setScene(idx);progress.style.width=(e/totalDemo*100)+'%';
+  demoTime.textContent=`0:${String(Math.floor(e)).padStart(2,'0')} / 0:44`;
+  if(e>=totalDemo){clearInterval(demoTimer);setPhase('READY','Ready')}
+}
+function restartChiefDemo(){
+  clearInterval(demoTimer);clearInterval(typingTimer);clearInterval(walkTimer);lastScene=-1;lastPose='';resetEffects();
+  demoStart=performance.now();walkIn();tick();demoTimer=setInterval(tick,100);
+}
+function openChiefDemo(){chiefDemo.classList.add('open');chiefDemo.setAttribute('aria-hidden','false');restartChiefDemo()}
+function closeChiefDemo(){chiefDemo.classList.remove('open');chiefDemo.setAttribute('aria-hidden','true');clearInterval(demoTimer);clearInterval(typingTimer);clearInterval(walkTimer);say('',false)}
+chiefDemo.addEventListener('click',e=>{if(e.target===chiefDemo)closeChiefDemo()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&chiefDemo.classList.contains('open'))closeChiefDemo()});
+</script>
+
 </body>
 </html>

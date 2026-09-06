@@ -127,6 +127,14 @@ header{
 @media(max-width:1150px){.shell{grid-template-columns:1fr}aside{position:relative;width:auto;height:auto}.back{margin-top:14px}main{grid-column:1}.hero,.grid2{grid-template-columns:1fr}.command-kpis{grid-template-columns:repeat(2,1fr)}.health-grid{grid-template-columns:repeat(3,1fr)}.suites{grid-template-columns:1fr 1fr}.gov-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:680px){main{padding:0 13px 48px}.hero-copy h1{font-size:35px}.command-kpis,.health-grid,.suites,.gov-grid{grid-template-columns:1fr}.opp{grid-template-columns:31px 1fr}.opp>div:nth-last-child(-n+3){display:none}.arch-row{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.global{display:none}}
 </style>
+
+<style id="columbia-site-nav-style">
+.columbia-site-nav{position:fixed;right:18px;bottom:18px;z-index:99999;display:flex;align-items:center;gap:5px;padding:6px;border:1px solid rgba(128,190,238,.22);background:rgba(5,10,18,.91);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:14px;box-shadow:0 18px 55px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.035);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.columbia-site-nav a,.columbia-site-nav summary{display:flex;align-items:center;min-height:31px;box-sizing:border-box;padding:0 9px;border:1px solid transparent;border-radius:8px;color:#9fb4c8;text-decoration:none;font-size:9px;font-weight:750;letter-spacing:.02em;white-space:nowrap;cursor:pointer;list-style:none;transition:.16s ease}
+.columbia-site-nav summary::-webkit-details-marker{display:none}.columbia-site-nav a:hover,.columbia-site-nav summary:hover{color:#fff;background:#122238;border-color:#28445f}.columbia-site-nav a.active{color:#07111b;background:linear-gradient(135deg,#79d8ff,#9fe8ff);box-shadow:0 5px 18px rgba(74,189,238,.16)}
+.columbia-site-nav .nav-home{padding:0 10px;color:#d8e9f8}.columbia-site-nav .nav-divider{width:1px;height:18px;background:#24384d;margin:0 1px}.columbia-site-nav details{position:relative}.columbia-site-nav details[open] summary{color:#fff;background:#122238;border-color:#28445f}.columbia-site-nav .suite-menu{position:absolute;right:0;bottom:calc(100% + 9px);width:210px;padding:7px;border:1px solid #29435d;border-radius:12px;background:rgba(6,12,21,.98);box-shadow:0 20px 55px rgba(0,0,0,.48);display:grid;gap:3px}.columbia-site-nav .suite-menu a{justify-content:space-between;padding:0 10px;min-height:34px}.columbia-site-nav .suite-menu a span{color:#617d96;font-size:8px}.columbia-site-nav .suite-menu a:hover span{color:#79d8ff}
+@media(max-width:760px){.columbia-site-nav{right:8px;bottom:8px;left:8px;justify-content:center}.columbia-site-nav a,.columbia-site-nav summary{font-size:8px;padding:0 7px}.columbia-site-nav .nav-home,.columbia-site-nav .nav-divider{display:none}.columbia-site-nav .suite-menu{right:0}}
+</style>
 </head>
 <body>
 <div class="shell">
@@ -286,11 +294,6 @@ header{
 </main>
 </div>
 
-<div class="global">
-  <a href="index.html">Intro</a><a href="enterprise.html">C-Suite</a><a href="enterprise.html#suites">Role Suites</a>
-  <a href="it-knowledge.html">IT</a><a href="studio.html">AI Studio</a>
-</div>
-
 <script>
 const names={command:'Company Steering Wheel',suites:'Role AI Suites',portfolio:'AI Opportunity Portfolio',architecture:'Enterprise Brain',governance:'Governance'};
 function show(id){
@@ -313,5 +316,16 @@ function askCompany(){
   '<span style="color:#f4c46d">Human decision:</span> leadership determines intervention, ownership and timing.';
 }
 </script>
+
+<nav class="columbia-site-nav" aria-label="Columbia Enterprise AI navigation">
+  <a class="nav-home" href="index.html" data-page="index.html">COLUMBIA AI</a><span class="nav-divider" aria-hidden="true"></span>
+  <a href="enterprise.html" data-page="enterprise.html">Enterprise</a>
+  <details><summary>Role Suites ▾</summary><div class="suite-menu">
+    <a href="pm-super.html">PM + Superintendent <span>01</span></a><a href="finance.html">Finance <span>02</span></a><a href="precon.html">Preconstruction <span>03</span></a><a href="executive.html">Executive <span>04</span></a><a href="people.html">People + Talent <span>05</span></a><a href="it-knowledge.html">IT + Knowledge <span>06</span></a>
+  </div></details>
+  <a href="journey.html" data-page="journey.html">Journey</a>
+  <a href="studio.html" data-page="studio.html">AI Studio</a>
+</nav>
+<script id="columbia-site-nav-script">(function(){const file=(location.pathname.split('/').pop()||'index.html');document.querySelectorAll('.columbia-site-nav [data-page]').forEach(a=>{if(a.dataset.page===file)a.classList.add('active')});const d=document.querySelector('.columbia-site-nav details');if(d){document.addEventListener('click',e=>{if(d.open&&!d.contains(e.target))d.removeAttribute('open')})}})();</script>
 </body>
 </html>

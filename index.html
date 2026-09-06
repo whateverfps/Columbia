@@ -214,6 +214,34 @@ h1{
 @media(max-width:900px){.chief-demo{padding:8px}.demo-shell{height:97vh}.demo-sub{display:none}.chief-character-zone{left:0;top:4%;width:39%}.chief-avatar{width:255px;height:255px}.chief-glow{width:280px;height:280px}.chief-orbit{width:270px;height:270px}.chief-orbit.o2{width:230px;height:230px}.chief-workspace{right:2%;width:59%;top:5%;bottom:72px}.speech{left:15%;top:3%;width:260px}.work-body{padding:20px}.demo-scene{inset:20px}.reason-grid{grid-template-columns:1fr}.metric{padding:10px}.metric strong{font-size:22px}.file-chip{width:125px}}
 @media(max-width:680px){.chief-character-zone{position:absolute;left:0;right:0;top:1%;width:100%;height:245px;bottom:auto;pointer-events:none}.chief-avatar{width:205px;height:205px}.chief-glow{width:220px;height:220px}.chief-orbit{width:218px;height:218px}.chief-orbit.o2{width:185px;height:185px}.chief-nameplate{display:none}.speech{left:8%;right:8%;top:190px;width:auto}.chief-workspace{left:3%;right:3%;width:auto;top:270px;bottom:62px}.work-card{border-radius:18px}.work-head{height:44px}.work-body{height:calc(100% - 44px);padding:16px}.demo-scene{inset:16px}.demo-scene h2{font-size:24px}.demo-copy{font-size:11px}.file-swarm{height:220px}.file-chip{width:112px;padding:10px}.reason-grid{grid-template-columns:repeat(3,1fr);gap:5px}.metric strong{font-size:20px}.metric span{font-size:7px}.demo-badge{display:none}.chief-horizon{display:none}}
 
+
+/* CHIEF CENTERPIECE V2 — character-first motion pass */
+.chief-character-zone{left:1%;top:2%;bottom:58px;width:48%;z-index:4}
+.chief-avatar{width:430px;height:430px;filter:drop-shadow(0 30px 35px rgba(0,0,0,.5));transition:transform .55s cubic-bezier(.2,.9,.2,1),filter .4s ease}
+.chief-avatar img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 22px rgba(105,215,255,.12))}
+.chief-avatar.working{transform:translateY(-8px) scale(1.045)}
+.chief-avatar.hero{transform:translateY(-18px) scale(1.12);filter:drop-shadow(0 38px 45px rgba(0,0,0,.58))}
+.chief-glow{width:440px;height:440px;background:radial-gradient(circle,rgba(64,191,255,.20),rgba(126,94,255,.09) 42%,transparent 70%);animation:chiefGlowPulse 3.2s ease-in-out infinite}
+.chief-orbit{width:420px;height:420px;opacity:.75}.chief-orbit.o2{width:350px;height:350px;opacity:.45}
+@keyframes chiefGlowPulse{50%{transform:scale(1.08);opacity:.72}}
+.chief-platform{width:310px;height:28px;bottom:34px;filter:blur(.1px);background:radial-gradient(ellipse,rgba(83,207,255,.24),rgba(110,84,255,.08) 45%,transparent 72%)}
+.chief-nameplate{bottom:-2px}.speech{left:30%;top:4%;width:330px;z-index:9;background:rgba(5,17,29,.94);box-shadow:0 18px 55px rgba(0,0,0,.32),0 0 0 1px rgba(107,215,255,.05) inset}
+.chief-workspace{right:3%;width:51%;top:6%;bottom:70px}.work-card{background:linear-gradient(180deg,rgba(8,17,31,.93),rgba(4,11,20,.94));box-shadow:0 25px 70px rgba(0,0,0,.3)}
+.work-body{padding:28px}.demo-scene h2{font-size:clamp(27px,2.65vw,39px);line-height:1.05}.demo-copy{max-width:520px}
+.chief-tool-orbit{position:absolute;inset:0;pointer-events:none;opacity:0;transition:.5s ease;z-index:6}.chief-tool-orbit.on{opacity:1}
+.tool-token{position:absolute;width:82px;height:54px;border:1px solid rgba(117,219,255,.25);border-radius:13px;background:linear-gradient(145deg,rgba(11,32,51,.96),rgba(13,20,40,.94));box-shadow:0 10px 30px rgba(0,0,0,.3),0 0 24px rgba(89,203,255,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:scale(.5);opacity:0;transition:.55s cubic-bezier(.2,1.3,.25,1)}
+.tool-token b{font-size:11px;letter-spacing:1.2px;color:#dff7ff}.tool-token span{font-size:7px;color:#6e9ab4;letter-spacing:.8px;margin-top:3px}.chief-tool-orbit.on .tool-token{transform:scale(1);opacity:1}
+.tt1{left:2%;top:18%;transition-delay:.05s}.tt2{right:0;top:18%;transition-delay:.16s}.tt3{left:0;bottom:24%;transition-delay:.28s}.tt4{right:2%;bottom:25%;transition-delay:.4s}
+.chief-tool-orbit.spin .tt1{animation:tokenFloat1 3.2s ease-in-out infinite}.chief-tool-orbit.spin .tt2{animation:tokenFloat2 3.5s ease-in-out infinite}.chief-tool-orbit.spin .tt3{animation:tokenFloat2 3s ease-in-out infinite reverse}.chief-tool-orbit.spin .tt4{animation:tokenFloat1 3.7s ease-in-out infinite reverse}
+@keyframes tokenFloat1{50%{transform:translate(8px,-9px) rotate(3deg)}}@keyframes tokenFloat2{50%{transform:translate(-8px,8px) rotate(-3deg)}}
+.chief-spark-field{position:absolute;inset:12%;border-radius:50%;pointer-events:none;opacity:0;transition:.4s}.chief-spark-field.on{opacity:1;background:radial-gradient(circle at 25% 35%,rgba(100,224,255,.8) 0 2px,transparent 3px),radial-gradient(circle at 72% 28%,rgba(163,123,255,.8) 0 2px,transparent 3px),radial-gradient(circle at 78% 68%,rgba(100,224,255,.65) 0 2px,transparent 3px),radial-gradient(circle at 22% 72%,rgba(163,123,255,.65) 0 2px,transparent 3px);animation:sparkTurn 4s linear infinite}@keyframes sparkTurn{to{transform:rotate(360deg)}}
+.chief-confetti{position:absolute;inset:0;z-index:8;pointer-events:none;overflow:hidden}.confetti-bit{position:absolute;top:43%;left:24%;width:5px;height:10px;border-radius:2px;background:#83ddff;opacity:0}.chief-confetti.go .confetti-bit{animation:confettiPop 1.5s cubic-bezier(.15,.7,.25,1) forwards}@keyframes confettiPop{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--r))}}
+.file-chip.arrive{box-shadow:0 10px 28px rgba(0,0,0,.22),0 0 24px rgba(92,210,255,.08)}
+.artifact-card.ready{box-shadow:0 18px 45px rgba(0,0,0,.3),0 0 34px rgba(91,205,255,.08)}
+.demo-controls{bottom:16px}.progress-bar{transition:width .1s linear}
+@media(max-width:900px){.chief-avatar{width:330px;height:330px}.chief-glow{width:350px;height:350px}.chief-orbit{width:335px;height:335px}.chief-orbit.o2{width:280px;height:280px}.speech{left:20%;width:280px}}
+@media(max-width:680px){.chief-character-zone{height:230px}.chief-avatar{width:220px;height:220px}.chief-glow{width:230px;height:230px}.chief-orbit{width:220px;height:220px}.chief-orbit.o2{width:185px;height:185px}.chief-workspace{top:255px}.tool-token{display:none}.speech{top:175px}.chief-avatar.hero{transform:scale(1.04)}}
+
 </style>
 </head>
 <body>
@@ -261,17 +289,25 @@ h1{
   <section class="demo-shell" role="dialog" aria-modal="true" aria-label="Meet Chief coded demonstration">
     <header class="demo-top">
       <div class="demo-dots"><i></i><i></i><i></i></div>
-      <div class="demo-title">CHIEF</div><div class="demo-sub">WORKING AI ASSISTANT · CODED PRODUCT DEMO</div>
-      <div class="demo-badge">DETERMINISTIC DEMO · NO LIVE DATA</div>
+      <div class="demo-title">CHIEF</div><div class="demo-sub">WORKING AI ASSISTANT · NARRATED PRODUCT DEMO</div>
+      <div class="demo-badge">CODED DEMO · NO LIVE DATA</div>
       <button class="demo-close" aria-label="Close demonstration" onclick="closeChiefDemo()">×</button>
     </header>
 
     <div class="chief-stage">
+      <div class="chief-confetti" id="chiefConfetti"></div>
       <div class="chief-horizon"></div>
 
       <section class="chief-character-zone" aria-label="Animated Chief character">
         <div class="chief-glow"></div><div class="chief-orbit"></div><div class="chief-orbit o2"></div>
         <div class="chief-platform"></div>
+        <div class="chief-tool-orbit" id="chiefToolOrbit">
+          <div class="tool-token tt1"><b>RFI</b><span>OPEN</span></div>
+          <div class="tool-token tt2"><b>SPEC</b><span>23 05 00</span></div>
+          <div class="tool-token tt3"><b>LOG</b><span>2 DUE</span></div>
+          <div class="tool-token tt4"><b>PLAN</b><span>B61</span></div>
+        </div>
+        <div class="chief-spark-field" id="chiefSparkField"></div>
         <div class="chief-avatar walking" id="chiefAvatar"><img id="chiefImage" src="assets/chief/wave.png" alt="Chief, animated construction engineer assistant"></div>
         <div class="chief-nameplate"><b>Chief</b><span>AI THAT WORKS WITH YOU</span><div class="status-pill"><i></i><span id="chiefStatus">Online</span></div></div>
       </section>
@@ -284,15 +320,15 @@ h1{
           <div class="work-body">
             <section class="demo-scene active" data-scene="0">
               <div class="kicker2">01 · START WITH THE OUTCOME</div>
-              <h2>Chief doesn't wait for a menu of clicks.</h2>
-              <div class="demo-copy">Give him the result you need. He can find the path through the information and tools already there.</div>
+              <h2>Give Chief the outcome. He figures out the path.</h2>
+              <div class="demo-copy">No menu hunting. No workflow maze. Tell him what needs to happen.</div>
               <div class="user-command"><div class="command-label">PAUL</div><div class="command-text"><span id="typedPrompt"></span><span class="typing-cursor"></span></div></div>
             </section>
 
             <section class="demo-scene" data-scene="1">
               <div class="kicker2">02 · SEARCH THE WORK, NOT JUST THE WEB</div>
-              <h2>He gathers the project evidence.</h2>
-              <div class="demo-copy">Registers, submittals, meeting commitments, drawings and specifications come together around the objective.</div>
+              <h2>Chief goes to work.</h2>
+              <div class="demo-copy">He pulls the right project information together around the objective.</div>
               <div class="file-swarm">
                 <div class="file-chip fc1"><b>Project Register</b><span>OPEN ITEMS · OWNERS</span></div>
                 <div class="file-chip fc2"><b>Submittal Log</b><span>DUE DATES · STATUS</span></div>
@@ -305,7 +341,7 @@ h1{
 
             <section class="demo-scene" data-scene="2">
               <div class="kicker2">03 · CONNECT WHAT MATTERS</div>
-              <h2>Chief turns information into attention.</h2>
+              <h2>He finds what deserves your attention.</h2>
               <div class="reason-grid">
                 <div class="metric"><strong>3</strong><span>PRIORITIES</span></div>
                 <div class="metric risk"><strong>1</strong><span>SCHEDULE RISK</span></div>
@@ -316,8 +352,8 @@ h1{
 
             <section class="demo-scene" data-scene="3">
               <div class="kicker2">04 · TURN THE CONVERSATION INTO WORK</div>
-              <h2>Then Chief builds the first deliverable.</h2>
-              <div class="demo-copy">No hunting through folders. No copy-and-paste relay. The evidence follows the work product.</div>
+              <h2>And he turns the answer into work.</h2>
+              <div class="demo-copy">The evidence stays attached. The team keeps authority.</div>
               <div class="artifact-card" id="artifactCard">
                 <div class="artifact-top"><b>PROJECT MEETING BRIEF</b><span>DRAFT · 5 SOURCES</span></div>
                 <div class="artifact-content">
@@ -333,8 +369,8 @@ h1{
             <section class="demo-scene" data-scene="4">
               <div class="final-proof">
                 <div class="kicker2">WORKING PROOF</div>
-                <h2>Useful AI should feel less like software — and more like <span>another capable person on the team.</span></h2>
-                <div class="proof-line">Chief is one working interface to the larger Columbia Enterprise AI concept: connected intelligence, role-specific capability, and human authority built in.</div>
+                <h2>Chief is not another place to work. <span>He works with you.</span></h2>
+                <div class="proof-line">One working expression of Columbia Enterprise AI — useful, connected, role-aware, and still human-led.</div>
                 <div class="proof-tags"><span>REASON</span><span>RETRIEVE</span><span>CREATE</span><span>USE TOOLS</span><span>HUMAN AUTHORITY</span></div>
               </div>
             </section>
@@ -345,7 +381,7 @@ h1{
       <div class="demo-controls">
         <button class="replay" onclick="restartChiefDemo()">REPLAY</button>
         <div class="progress-track"><div class="progress-bar" id="demoProgress"></div></div>
-        <div class="demo-time" id="demoTime">0:00 / 0:44</div>
+        <div class="demo-time" id="demoTime">0:00 / 0:42</div>
       </div>
     </div>
   </section>
@@ -365,9 +401,17 @@ const typedPrompt=document.getElementById('typedPrompt');
 const workPhase=document.getElementById('workPhase');
 const scanline=document.getElementById('scanline');
 const artifactCard=document.getElementById('artifactCard');
+const chiefToolOrbit=document.getElementById('chiefToolOrbit');
+const chiefSparkField=document.getElementById('chiefSparkField');
+const chiefConfetti=document.getElementById('chiefConfetti');
 
-const totalDemo=44;
-const sceneStarts=[0,9,18,27,36];
+const chiefAudio=new Audio('assets/chief/chief-voice.mp3');
+chiefAudio.preload='auto';
+const totalDemo=47;
+// The ElevenLabs narration is now the master clock. Visuals follow the recorded voice,
+// so the demo stays deterministic on every replay and never falls back to browser TTS.
+const sceneStarts=[0,10.15,20.55,31.70,40.10];
+
 let demoStart=0,demoTimer=null,typingTimer=null,walkTimer=null,lastScene=-1,lastPose='';
 const posePath=name=>`assets/chief/${name}.png`;
 
@@ -379,9 +423,9 @@ function pose(name,bounce=false){
 function say(text,show=true){chiefSpeechText.textContent=text;chiefSpeech.classList.toggle('show',show)}
 function setPhase(text,status){workPhase.textContent=text;chiefStatus.textContent=status||text}
 function typePrompt(){
-  const text='Chief, get me ready for the 10:00 project meeting. Tell me what needs attention.';
+  const text='Chief, get me ready for the 10:00 meeting. What needs my attention?';
   typedPrompt.textContent='';let i=0;clearInterval(typingTimer);
-  typingTimer=setInterval(()=>{typedPrompt.textContent=text.slice(0,++i);if(i>=text.length)clearInterval(typingTimer)},30);
+  typingTimer=setInterval(()=>{typedPrompt.textContent=text.slice(0,++i);if(i>=text.length)clearInterval(typingTimer)},22);
 }
 function walkIn(){
   const frames=['walk1','walk2','walk3','walk4','walk5','walk6','walk7','walk8','walk9','walk10','walk11','walk12'];let i=0;
@@ -391,47 +435,55 @@ function walkIn(){
 function resetEffects(){
   document.querySelectorAll('.file-chip').forEach(x=>x.classList.remove('arrive'));
   scanline.classList.remove('go');artifactCard.classList.remove('ready');
+  chiefToolOrbit.classList.remove('on','spin');chiefSparkField.classList.remove('on');chiefAvatar.classList.remove('working','hero');chiefConfetti.classList.remove('go');
 }
 function setScene(index){
   if(index===lastScene)return;lastScene=index;
   scenes.forEach((s,i)=>s.classList.toggle('active',i===index));
+  chiefAvatar.classList.remove('working','hero');
   if(index===0){
-    resetEffects();setPhase('READY','Listening');pose('wave',true);say('Morning. Give me the objective.',true);typePrompt();
-    setTimeout(()=>{if(lastScene===0){pose('greet');say('Got it. I’ll pull the project picture together.')}},4300);
+    resetEffects();setPhase('LISTENING','Listening');pose('wave',true);say('Hey. I’m Chief.',true);typePrompt();
+    setTimeout(()=>{if(lastScene===0){pose('greet',true);say('Give me an objective. I’ll work across what your team already has.')}},5200);
   }
   if(index===1){
-    setPhase('RETRIEVING','Searching project information');pose('searching',true);say('I’m checking the register, submittals, commitments, drawings and schedule.');
-    document.querySelectorAll('.file-chip').forEach((x,i)=>setTimeout(()=>x.classList.add('arrive'),300+i*430));
-    setTimeout(()=>scanline.classList.add('go'),650);
-    setTimeout(()=>{if(lastScene===1){pose('processing');setPhase('CROSS-CHECKING','Cross-checking dependencies')}},4400);
+    setPhase('ON IT','Working across project information');chiefAvatar.classList.add('working');pose('searching',true);say('Project register · Submittals · Notes · Drawings · Specs · Schedule');
+    chiefToolOrbit.classList.add('on','spin');chiefSparkField.classList.add('on');
+    document.querySelectorAll('.file-chip').forEach((x,i)=>setTimeout(()=>x.classList.add('arrive'),250+i*720));
+    setTimeout(()=>scanline.classList.add('go'),450);
+    setTimeout(()=>{if(lastScene===1){pose('processing',true);say('Reviewing the project together — not one file at a time.')}},6800);
   }
   if(index===2){
-    setPhase('REASONING','Connecting evidence');pose('thinking',true);say('I found three priorities. One can affect the next installation sequence.');
-    setTimeout(()=>{if(lastScene===2)pose('explain')},4200);
+    setPhase('CONNECTED','Reasoning across evidence');chiefAvatar.classList.add('hero');pose('thinking',true);say('Connecting the pieces. Finding what matters.');chiefSparkField.classList.add('on');
+    setTimeout(()=>{if(lastScene===2){pose('alert',true);say('3 priorities · 1 schedule risk · 2 decisions')}} ,4700);
   }
   if(index===3){
-    setPhase('CREATING','Building work product');pose('writing',true);say('I’ll turn that into a meeting brief and keep the supporting evidence with it.');
-    setTimeout(()=>artifactCard.classList.add('ready'),900);
-    setTimeout(()=>{if(lastScene===3){pose('save',true);setPhase('DRAFT READY','Draft complete');say('Brief ready. The decisions still belong to the team.')}},4800);
+    setPhase('BUILDING','Creating the brief');chiefAvatar.classList.add('working');pose('writing',true);say('Building the first work product…');
+    setTimeout(()=>artifactCard.classList.add('ready'),650);
+    setTimeout(()=>{if(lastScene===3){pose('save',true);setPhase('READY FOR REVIEW','Draft complete');say('I don’t make the decision. YOU DO.')}},2050);
   }
   if(index===4){
-    setPhase('READY','Ready');pose('celebration',true);say('That’s the idea: give me the objective — I’ll help move the work.',true);
-    setTimeout(()=>{if(lastScene===4)pose('wave')},4300);
+    setPhase('READY','Ready');chiefAvatar.classList.add('hero');pose('explain',true);say('Your people stay focused on moving the project forward.',true);
+    setTimeout(()=>{if(lastScene===4){pose('celebration',true);say('Give me the outcome. I’ll help move the work.');
+      chiefConfetti.innerHTML='';for(let i=0;i<22;i++){const b=document.createElement('i');b.className='confetti-bit';b.style.setProperty('--x',`${(Math.random()-.5)*520}px`);b.style.setProperty('--y',`${-80-Math.random()*300}px`);b.style.setProperty('--r',`${Math.random()*720-360}deg`);b.style.background=i%3===0?'#aa91ff':i%3===1?'#83ddff':'#63d9b4';b.style.animationDelay=`${Math.random()*.25}s`;chiefConfetti.appendChild(b)}chiefConfetti.classList.add('go');}},3800);
+    setTimeout(()=>{if(lastScene===4)pose('wave',true)},5850);
   }
 }
 function tick(){
-  const e=Math.min((performance.now()-demoStart)/1000,totalDemo);
+  const e=Math.min(chiefAudio.currentTime || 0,totalDemo);
   let idx=0;for(let i=0;i<sceneStarts.length;i++){if(e>=sceneStarts[i])idx=i;else break}
   setScene(idx);progress.style.width=(e/totalDemo*100)+'%';
-  demoTime.textContent=`0:${String(Math.floor(e)).padStart(2,'0')} / 0:44`;
-  if(e>=totalDemo){clearInterval(demoTimer);setPhase('READY','Ready')}
+  demoTime.textContent=`0:${String(Math.floor(e)).padStart(2,'0')} / 0:47`;
+  if(chiefAudio.ended || e>=46.9){clearInterval(demoTimer);progress.style.width='100%';setPhase('READY','Ready')}
 }
 function restartChiefDemo(){
-  clearInterval(demoTimer);clearInterval(typingTimer);clearInterval(walkTimer);lastScene=-1;lastPose='';resetEffects();
-  demoStart=performance.now();walkIn();tick();demoTimer=setInterval(tick,100);
+  clearInterval(demoTimer);clearInterval(typingTimer);clearInterval(walkTimer);chiefAudio.pause();chiefAudio.currentTime=0;lastScene=-1;lastPose='';resetEffects();
+  walkIn();tick();
+  const playPromise=chiefAudio.play();
+  if(playPromise) playPromise.catch(()=>{say('Press REPLAY to start Chief with sound.',true)});
+  demoTimer=setInterval(tick,60);
 }
 function openChiefDemo(){chiefDemo.classList.add('open');chiefDemo.setAttribute('aria-hidden','false');restartChiefDemo()}
-function closeChiefDemo(){chiefDemo.classList.remove('open');chiefDemo.setAttribute('aria-hidden','true');clearInterval(demoTimer);clearInterval(typingTimer);clearInterval(walkTimer);say('',false)}
+function closeChiefDemo(){chiefDemo.classList.remove('open');chiefDemo.setAttribute('aria-hidden','true');clearInterval(demoTimer);clearInterval(typingTimer);clearInterval(walkTimer);chiefAudio.pause();chiefAudio.currentTime=0;say('',false)}
 chiefDemo.addEventListener('click',e=>{if(e.target===chiefDemo)closeChiefDemo()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&chiefDemo.classList.contains('open'))closeChiefDemo()});
 </script>

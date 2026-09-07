@@ -106,7 +106,8 @@ h1{
 .film,
 .chief-btn,
 .case-btn,
-.architecture-btn{
+.architecture-btn,
+.how-btn{
   border:1px solid rgba(121,216,255,.24);border-radius:14px;padding:14px 20px;
   color:#b9d0e3;background:rgba(8,16,29,.50);backdrop-filter:blur(10px);
   font-weight:800;font-size:12px;letter-spacing:.3px;cursor:pointer;
@@ -116,7 +117,8 @@ h1{
 .film:hover,
 .chief-btn:hover,
 .case-btn:hover,
-.architecture-btn:hover{
+.architecture-btn:hover,
+.how-btn:hover{
   transform:translateY(-2px);border-color:rgba(121,216,255,.48);
   background:rgba(15,30,50,.68);color:#eef8ff;
 }
@@ -125,6 +127,7 @@ h1{
 .chief-btn:after{content:"✦";margin-left:10px;color:#79d8ff;font-size:12px}
 .case-btn:after{content:"↗";margin-left:9px;color:#79d8ff}
 .architecture-btn:after{content:"↗";margin-left:9px;color:#79d8ff}
+.how-btn:after{content:"→";margin-left:9px;color:#79d8ff}
 .film{border:1px solid rgba(121,216,255,.24);border-radius:14px;padding:14px 20px;color:#dcecff;background:rgba(8,16,29,.50);backdrop-filter:blur(10px);font-weight:800;font-size:12px;letter-spacing:.3px;cursor:pointer;transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;}
 .footer{
   position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;
@@ -136,10 +139,14 @@ h1{
 .corner.right{left:auto;right:26px;text-align:right}
 @keyframes reveal{from{opacity:0;transform:translateY(10px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
 @media(max-width:700px){
-  h1{letter-spacing:-3px}.ring{width:90vw;height:45vw}.ring.r2{width:110vw;height:55vw}
+  html,body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
+  .stage{height:auto;min-height:100svh;padding:34px 0 72px}
+  .content{transform:none;width:min(92vw,560px)}
+  h1{letter-spacing:-3px;font-size:clamp(48px,15vw,78px);margin-top:22px}.ring{width:90vw;height:45vw}.ring.r2{width:110vw;height:55vw}
   .corner{display:none}.subtitle{font-size:15px}.thesis{font-size:10px}
-  .actions{flex-direction:column;width:min(320px,90vw)}
-  .enter,.journey,.film,.chief-btn,.case-btn,.architecture-btn{width:100%}
+  .actions{flex-direction:column;width:min(340px,90vw);margin-top:30px}
+  .enter,.journey,.film,.chief-btn,.case-btn,.architecture-btn,.how-btn{width:100%}
+  .footer{position:relative;bottom:auto;margin:36px auto 0;padding:0 22px;text-align:center;line-height:1.5}
 }
 
 
@@ -156,6 +163,7 @@ h1{
 .chief-btn:after{content:"✦";margin-left:10px;color:#79d8ff;font-size:12px}
 .case-btn:after{content:"↗";margin-left:9px;color:#79d8ff}
 .architecture-btn:after{content:"↗";margin-left:9px;color:#79d8ff}
+.how-btn:after{content:"→";margin-left:9px;color:#79d8ff}
 
 .chief-demo{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(1,4,10,.92);backdrop-filter:blur(22px)}
 .chief-demo.open{display:flex;animation:chiefDemoFade .32s ease both}
@@ -282,11 +290,10 @@ h1{
 
     <div class="actions">
       <button class="enter" onclick="location.href='enterprise.html'">Enter the experience</button>
+      <button class="film" onclick="window.open('assets/video/Columbia_Enterprise_AI_Film.mp4','_blank')">Watch the overview</button>
       <button class="chief-btn" onclick="openChiefDemo()">Meet Chief</button>
-      <button class="journey" onclick="location.href='journey.html'">See the journey</button>
-      <button class="case-btn" onclick="location.href='business-case.html'">Business case</button>
-      <button class="architecture-btn" onclick="location.href='architecture-lab.html'">Architecture Lab</button>
-      <button class="film" onclick="window.open('assets/video/Columbia_Enterprise_AI_Film.mp4','_blank')">Watch the film</button>
+      <button class="how-btn" onclick="location.href='how-it-works.html'">How it works</button>
+      <button class="journey" onclick="location.href='journey.html'">The journey</button>
     </div>
   </main>
 

@@ -26,6 +26,16 @@ main{grid-column:2;max-width:1600px;width:100%;margin:auto;padding:0 30px 55px}h
 .columbia-site-nav .nav-home{padding:0 10px;color:#d8e9f8}.columbia-site-nav .nav-divider{width:1px;height:18px;background:#24384d;margin:0 1px}.columbia-site-nav details{position:relative}.columbia-site-nav details[open] summary{color:#fff;background:#122238;border-color:#28445f}.columbia-site-nav .suite-menu{position:absolute;right:0;bottom:calc(100% + 9px);width:210px;padding:7px;border:1px solid #29435d;border-radius:12px;background:rgba(6,12,21,.98);box-shadow:0 20px 55px rgba(0,0,0,.48);display:grid;gap:3px}.columbia-site-nav .suite-menu a{justify-content:space-between;padding:0 10px;min-height:34px}.columbia-site-nav .suite-menu a span{color:#617d96;font-size:8px}.columbia-site-nav .suite-menu a:hover span{color:#79d8ff}
 @media(max-width:760px){.columbia-site-nav{right:8px;bottom:8px;left:8px;justify-content:center}.columbia-site-nav a,.columbia-site-nav summary{font-size:8px;padding:0 7px}.columbia-site-nav .nav-home,.columbia-site-nav .nav-divider{display:none}.columbia-site-nav .suite-menu{right:0}}
 </style>
+
+<style id="presentation-nav-style">
+.presentation-nav{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:1000;display:grid;grid-template-columns:minmax(150px,1fr) auto minmax(170px,1fr);align-items:center;gap:8px;width:min(760px,calc(100vw - 28px));padding:8px;border:1px solid rgba(121,216,255,.18);border-radius:16px;background:rgba(4,10,19,.88);backdrop-filter:blur(18px);box-shadow:0 18px 55px rgba(0,0,0,.34)}
+.presentation-nav a{text-decoration:none;color:#b8cadb;font:800 11px/1.2 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.25px;padding:11px 13px;border-radius:10px;border:1px solid transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:.18s ease}
+.presentation-nav a:hover{color:#f4fbff;background:rgba(121,216,255,.08);border-color:rgba(121,216,255,.18)}
+.presentation-nav .pn-home{color:#7fdcff;text-align:center;border-color:rgba(121,216,255,.12);background:rgba(121,216,255,.04)}
+.presentation-nav .pn-back{text-align:left}.presentation-nav .pn-next{text-align:right;color:#eef8ff;background:linear-gradient(110deg,rgba(80,175,225,.18),rgba(128,91,225,.16));border-color:rgba(121,216,255,.18)}
+body{padding-bottom:84px!important}
+@media(max-width:680px){.presentation-nav{bottom:10px;grid-template-columns:1fr 96px 1fr;width:calc(100vw - 16px);padding:6px}.presentation-nav a{font-size:9px;padding:10px 8px}.presentation-nav .pn-home{font-size:9px}}
+</style>
 </head><body>
 <div class="shell"><aside>
 <div class="brand"><div class="mark">PC</div><div><b>Preconstruction + Estimating</b><small>Cost · Scope · Bid · Market Intelligence</small></div></div>
@@ -69,8 +79,14 @@ main{grid-column:2;max-width:1600px;width:100%;margin:auto;padding:0 30px 55px}h
   <details><summary>Role Suites ▾</summary><div class="suite-menu">
     <a href="pm-super.html">PM + Superintendent <span>01</span></a><a href="finance.html">Finance <span>02</span></a><a href="precon.html">Preconstruction <span>03</span></a><a href="executive.html">Executive <span>04</span></a><a href="people.html">People + Talent <span>05</span></a><a href="it-knowledge.html">IT + Knowledge <span>06</span></a>
   </div></details>
+  <a href="how-it-works.html" data-page="how-it-works.html">How It Works</a>
   <a href="journey.html" data-page="journey.html">Journey</a>
-  <a href="studio.html" data-page="studio.html">AI Studio</a>
 </nav>
 <script id="columbia-site-nav-script">(function(){const file=(location.pathname.split('/').pop()||'index.html');document.querySelectorAll('.columbia-site-nav [data-page]').forEach(a=>{if(a.dataset.page===file)a.classList.add('active')});const d=document.querySelector('.columbia-site-nav details');if(d){document.addEventListener('click',e=>{if(d.open&&!d.contains(e.target))d.removeAttribute('open')})}})();</script>
+
+<nav class="presentation-nav" aria-label="Presentation navigation">
+  <a class="pn-back" href="finance.html">← Finance</a>
+  <a class="pn-home" href="index.html">COLUMBIA AI</a>
+  <a class="pn-next" href="executive.html">Next: Executive →</a>
+</nav>
 </body></html>

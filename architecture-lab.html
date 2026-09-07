@@ -24,6 +24,16 @@ table{width:100%;border-collapse:collapse;background:#091a26;border:1px solid #1
 .flow{display:flex;gap:8px;align-items:stretch;overflow:auto;padding:12px 0}.flow .step{min-width:170px;border:1px solid #24536a;background:#0b2230;padding:12px;border-radius:9px}.flow .arr{align-self:center;color:var(--cyan);font-size:22px}
 @media(max-width:1000px){.chiefwrap{grid-template-columns:1fr}.mapgrid{grid-template-columns:1fr 1fr}.app{grid-template-columns:180px 1fr}.drawer{left:200px}}
 </style>
+
+<style id="presentation-nav-style">
+.presentation-nav{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:1000;display:grid;grid-template-columns:minmax(150px,1fr) auto minmax(170px,1fr);align-items:center;gap:8px;width:min(760px,calc(100vw - 28px));padding:8px;border:1px solid rgba(121,216,255,.18);border-radius:16px;background:rgba(4,10,19,.88);backdrop-filter:blur(18px);box-shadow:0 18px 55px rgba(0,0,0,.34)}
+.presentation-nav a{text-decoration:none;color:#b8cadb;font:800 11px/1.2 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.25px;padding:11px 13px;border-radius:10px;border:1px solid transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:.18s ease}
+.presentation-nav a:hover{color:#f4fbff;background:rgba(121,216,255,.08);border-color:rgba(121,216,255,.18)}
+.presentation-nav .pn-home{color:#7fdcff;text-align:center;border-color:rgba(121,216,255,.12);background:rgba(121,216,255,.04)}
+.presentation-nav .pn-back{text-align:left}.presentation-nav .pn-next{text-align:right;color:#eef8ff;background:linear-gradient(110deg,rgba(80,175,225,.18),rgba(128,91,225,.16));border-color:rgba(121,216,255,.18)}
+body{padding-bottom:84px!important}
+@media(max-width:680px){.presentation-nav{bottom:10px;grid-template-columns:1fr 96px 1fr;width:calc(100vw - 16px);padding:6px}.presentation-nav a{font-size:9px;padding:10px 8px}.presentation-nav .pn-home{font-size:9px}}
+</style>
 </head>
 <body>
 <header><a class="backhome" href="index.html">← HOME</a><div class="brand">COLUMBIA <b>ENTERPRISE AI</b></div><div class="tag">WORKBOOK EXPLORER</div><div class="tag">ILLUSTRATIVE MODEL</div><div class="offline"><span class="dot"></span>LOCAL ORGANIZATIONAL DATA ONLY</div></header>
@@ -180,4 +190,10 @@ function showSource(name){
  document.getElementById('drawerContent').innerHTML=content;document.getElementById('drawer').classList.add('show')
 }
 function closeDrawer(){document.getElementById('drawer').classList.remove('show')}
-</script></body></html>
+</script>
+<nav class="presentation-nav" aria-label="Presentation navigation">
+  <a class="pn-back" href="how-it-works.html">← How It Works</a>
+  <a class="pn-home" href="index.html">COLUMBIA AI</a>
+  <a class="pn-next" href="studio.html">Next: AI Studio →</a>
+</nav>
+</body></html>

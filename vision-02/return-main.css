@@ -1,0 +1,7 @@
+/* Vision 02 — persistent return to the original Columbia intro */
+.main-intro-return{display:inline-flex;align-items:center;gap:8px;text-decoration:none!important;letter-spacing:.10em;text-transform:uppercase;font-weight:800}
+.nav .main-intro-return{margin-top:12px;border:1px solid rgba(76,207,255,.38)!important;background:linear-gradient(180deg,rgba(14,47,68,.82),rgba(5,25,38,.88))!important;color:#dff8ff!important;box-shadow:inset 3px 0 0 #41d5ff,0 0 22px rgba(53,207,255,.08)}
+.nav .main-intro-return:hover{border-color:#42d5ff!important;background:rgba(28,91,124,.58)!important;color:#fff!important}
+.main-intro-float{position:fixed;z-index:10020;top:18px;left:24px;padding:10px 14px;border-radius:999px;border:1px solid rgba(75,208,255,.42);background:rgba(3,17,28,.88);backdrop-filter:blur(14px);color:#dff8ff!important;box-shadow:0 10px 34px rgba(0,0,0,.28),0 0 24px rgba(53,207,255,.08)}
+.main-intro-float:hover{border-color:#4fd9ff;background:rgba(9,42,61,.96);color:#fff!important}
+@media(max-width:900px){.main-intro-float{top:auto;bottom:18px;left:18px;font-size:11px;padding:9px 12px}}

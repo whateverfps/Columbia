@@ -15,7 +15,7 @@
 .open-role{position:absolute;right:0;bottom:0;border:1px solid rgba(75,220,255,.3);border-radius:999px;background:rgba(6,26,40,.82);padding:8px 11px;color:#dff9ff;text-decoration:none;font-size:8px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
 @media(max-width:1000px){.copy{width:40vw;left:3vw}.visual{left:42vw;right:2vw}.copy h1{font-size:40px}.hud{transform:scale(.82);transform-origin:top left}.pipe{transform:scale(.8);transform-origin:center}.world-card{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
-</style><link href="future-fabric.css" rel="stylesheet"/><link href="boot.css" rel="stylesheet"/></head><body>
+</style><link href="future-fabric.css" rel="stylesheet"/><link href="boot.css" rel="stylesheet"/><link href="return-main.css" rel="stylesheet"/></head><body>
 <div class="demo"><div class="top"><div class="brand">COLUMBIA <span>AI</span></div><div class="mode">Paul's Vision • Live Demo</div><div class="top-right"><a href="pauls-vision.html">Vision Hub</a><a href="enterprise.html">Dashboard</a><a href="demo.html?boot=1" title="Replay the Columbia AI opening sequence">Replay Opening</a><button class="primary" id="auto">▶ Auto Play</button></div></div>
 <div class="stage" id="stage"></div>
 <div class="footer"><div class="navbtns"><button id="prev">← Back</button><button class="primary" id="next">Next →</button></div><div class="progress" id="progress"></div><div class="caption"><b id="stepname">Opening</b><span id="count">1 / 11</span></div></div></div>
@@ -38,4 +38,4 @@ chapters.forEach((c,i)=>{const el=document.createElement('section');el.className
 function show(n){idx=(n+chapters.length)%chapters.length;[...stage.children].forEach((e,i)=>e.classList.toggle('active',i===idx));[...progress.children].forEach((e,i)=>e.classList.toggle('active',i===idx));stepname.textContent=chapters[idx].name;count.textContent=`${idx+1} / ${chapters.length}`;if(auto)restart()}
 function restart(){clearTimeout(timer);timer=setTimeout(()=>{if(idx===chapters.length-1){auto=false;document.getElementById('auto').textContent='▶ Auto Play';return}show(idx+1)},6500)}
 document.getElementById('prev').onclick=()=>show(idx-1);document.getElementById('next').onclick=()=>show(idx+1);document.getElementById('auto').onclick=e=>{auto=!auto;e.currentTarget.textContent=auto?'❚❚ Pause':'▶ Auto Play';clearTimeout(timer);if(auto)restart()};document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')show(idx+1);if(e.key==='ArrowLeft')show(idx-1);if(e.key==='Escape')location.href='pauls-vision.html'});show(0);
-</script><script src="future-fabric.js"></script><script src="v15.js"></script><script src="boot.js"></script></body></html>
+</script><script src="future-fabric.js"></script><script src="v15.js"></script><script src="boot.js"></script><script src="return-main.js"></script></body></html>

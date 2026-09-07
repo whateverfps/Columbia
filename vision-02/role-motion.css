@@ -1,0 +1,27 @@
+
+/* V10 — role-specific living scenes inspired by Columbia's animated wallpaper */
+.hero.role-live{position:relative;overflow:hidden;min-height:315px;isolation:isolate}
+.hero.role-live .hero-media{opacity:.46;filter:saturate(.82) contrast(1.08);transition:opacity .35s ease,filter .35s ease}
+.role-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:auto;cursor:crosshair}
+.hero.role-live .hero-copy,.hero.role-live .hero-quote{position:relative;z-index:5}
+.role-vignette{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(3,12,20,.87) 0%,rgba(3,12,20,.55) 33%,rgba(3,12,20,.10) 66%,rgba(3,12,20,.32) 100%),linear-gradient(0deg,rgba(2,9,15,.52),transparent 48%)}
+.role-hud{position:absolute;z-index:6;right:16px;top:14px;display:flex;flex-direction:column;align-items:flex-end;gap:7px;pointer-events:none;text-transform:uppercase;letter-spacing:.16em;text-shadow:0 0 16px rgba(65,214,255,.55)}
+.role-hud .live{display:flex;align-items:center;gap:6px;color:#dffaff;font-size:6.8px;font-weight:900}.role-hud .live i{width:5px;height:5px;border-radius:50%;background:#4ae2b3;box-shadow:0 0 10px #4ae2b3;animation:roleBlink 1.35s ease-in-out infinite}.role-hud .scene-name{font-size:6px;color:#73b5d0}.role-hud .status{max-width:290px;text-align:right;font-size:7px;color:#d7f6ff;line-height:1.4;background:rgba(4,18,28,.58);border-right:2px solid #3ed9ff;padding:6px 8px;backdrop-filter:blur(7px)}
+@keyframes roleBlink{50%{opacity:.28;transform:scale(.72)}}
+.role-controls{position:absolute;z-index:7;right:14px;bottom:13px;display:flex;gap:7px}.role-controls button{border:1px solid rgba(72,205,255,.38);border-radius:999px;background:rgba(4,18,28,.72);backdrop-filter:blur(8px);color:#bcefff;font-size:6.7px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;padding:7px 10px;cursor:pointer;box-shadow:0 6px 25px rgba(0,0,0,.22);transition:.18s}.role-controls button:hover{color:#fff;border-color:#52e1ff;transform:translateY(-1px)}
+.role-action-flare{position:absolute;z-index:8;left:50%;top:50%;transform:translate(-50%,-50%) scale(.9);min-width:260px;max-width:460px;padding:12px 16px;border:1px solid rgba(82,220,255,.65);border-radius:12px;background:linear-gradient(180deg,rgba(4,24,37,.94),rgba(3,14,23,.92));box-shadow:0 0 40px rgba(47,202,255,.18),0 18px 50px rgba(0,0,0,.4);color:#e8fbff;text-align:center;opacity:0;pointer-events:none;transition:.25s}.role-action-flare.show{opacity:1;transform:translate(-50%,-50%) scale(1)}.role-action-flare b{display:block;color:#54e1ff;font-size:8px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}.role-action-flare span{display:block;font-size:10px;line-height:1.45;color:#d8edf5}
+.hero.role-live.role-full{position:fixed!important;inset:0!important;z-index:4000!important;width:100vw!important;height:100vh!important;max-width:none!important;border-radius:0!important;margin:0!important;min-height:100vh!important;background:#020914}.hero.role-live.role-full .hero-copy{left:3.5vw;top:8vh;max-width:540px}.hero.role-live.role-full .hero-copy h1{font-size:clamp(34px,4vw,72px)}.hero.role-live.role-full .hero-media{opacity:.28}.hero.role-live.role-full .role-hud{top:4vh;right:3vw}.hero.role-live.role-full .role-controls{right:3vw;bottom:3vh}.role-exit{display:none}.hero.role-full .role-exit{display:inline-block}.hero.role-full .role-expand{display:none}
+body.role-full-open{overflow:hidden}.hero.role-full .role-vignette{background:linear-gradient(90deg,rgba(2,8,14,.83),rgba(2,8,14,.16) 56%,rgba(2,8,14,.2)),linear-gradient(0deg,rgba(2,8,14,.55),transparent 50%)}
+/* role identity accents */
+body[data-page="enterprise"] .hero.role-live{box-shadow:inset 0 0 60px rgba(27,164,255,.05)}
+body[data-page="executive"] .hero.role-live{box-shadow:inset 0 0 60px rgba(77,132,255,.055)}
+body[data-page="project"] .hero.role-live{box-shadow:inset 0 0 60px rgba(24,220,255,.045)}
+body[data-page="preconstruction"] .hero.role-live{box-shadow:inset 0 0 60px rgba(61,216,196,.045)}
+body[data-page="finance"] .hero.role-live{box-shadow:inset 0 0 60px rgba(60,215,173,.045)}
+body[data-page="people"] .hero.role-live{box-shadow:inset 0 0 60px rgba(98,166,255,.05)}
+body[data-page="it"] .hero.role-live{box-shadow:inset 0 0 60px rgba(96,121,255,.06)}
+body[data-page="studio"] .hero.role-live{box-shadow:inset 0 0 60px rgba(188,91,255,.055)}
+body[data-page="journey"] .hero.role-live{box-shadow:inset 0 0 60px rgba(64,214,255,.04)}
+body[data-page="business-case"] .hero.role-live{box-shadow:inset 0 0 60px rgba(83,229,175,.045)}
+@media(max-width:800px){.role-hud{display:none}.role-controls{right:9px;bottom:8px}.role-controls button{padding:6px 8px;font-size:6px}.hero.role-live{min-height:330px}.role-action-flare{min-width:0;width:72%;}.hero.role-full .hero-copy{left:18px;top:66px;max-width:80vw}}
+@media(prefers-reduced-motion:reduce){.role-hud .live i{animation:none}}

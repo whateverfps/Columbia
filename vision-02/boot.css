@@ -1,0 +1,42 @@
+/* V18 — cinematic launch sequence. Shows once per session on the first Columbia AI entry point. */
+.columbia-boot{position:fixed;inset:0;z-index:99999;background:#01070d;color:#eafaff;overflow:hidden;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;opacity:1;transition:opacity .7s ease,visibility .7s ease}
+.columbia-boot.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
+.columbia-boot-grid{position:absolute;inset:0;background:radial-gradient(circle at 56% 48%,rgba(16,119,169,.22),transparent 31%),linear-gradient(rgba(58,209,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(58,209,255,.055) 1px,transparent 1px);background-size:auto,46px 46px,46px 46px;animation:bootGrid 14s linear infinite}
+@keyframes bootGrid{to{background-position:0,46px 46px,46px 46px}}
+.columbia-boot-scan{position:absolute;left:0;right:0;height:2px;top:-5%;background:linear-gradient(90deg,transparent,#50dfff 35%,#b9f7ff 50%,#50dfff 65%,transparent);box-shadow:0 0 26px rgba(70,220,255,.65);animation:bootScan 4.4s ease-in-out infinite}
+@keyframes bootScan{0%{top:-3%;opacity:0}12%{opacity:.9}78%{opacity:.75}100%{top:103%;opacity:0}}
+.boot-brand{position:absolute;left:4vw;top:4.2vh;font-size:16px;font-weight:950;letter-spacing:.08em}.boot-brand span{color:#4bdcff}.boot-mode{display:block;margin-top:7px;font-size:8px;letter-spacing:.32em;text-transform:uppercase;color:#5b8da2}
+.boot-center{position:absolute;left:50%;top:49%;transform:translate(-50%,-50%);width:min(920px,86vw);height:min(610px,72vh);display:grid;place-items:center}
+.boot-building{position:absolute;width:min(440px,44vw);height:min(420px,52vh);transform:perspective(950px) rotateX(58deg) rotateZ(-5deg);transform-style:preserve-3d;filter:drop-shadow(0 0 24px rgba(55,214,255,.15))}
+.boot-floor{position:absolute;left:5%;width:90%;height:58px;border:1px solid rgba(78,221,255,.46);background:linear-gradient(90deg,rgba(50,205,255,.01),rgba(50,205,255,.1),rgba(50,205,255,.01));opacity:0;animation:bootFloor 3.8s cubic-bezier(.2,.8,.2,1) forwards}
+.boot-floor:nth-child(1){bottom:0;animation-delay:.25s}.boot-floor:nth-child(2){bottom:64px;animation-delay:.45s}.boot-floor:nth-child(3){bottom:128px;animation-delay:.65s}.boot-floor:nth-child(4){bottom:192px;animation-delay:.85s}.boot-floor:nth-child(5){bottom:256px;animation-delay:1.05s}.boot-floor:nth-child(6){bottom:320px;animation-delay:1.25s}
+@keyframes bootFloor{0%{opacity:0;transform:translateZ(-85px) scale(.82)}35%,100%{opacity:.78;transform:translateZ(0) scale(1)}}
+.boot-core{position:absolute;width:154px;height:154px;border:1px solid rgba(72,223,255,.72);border-radius:50%;display:grid;place-items:center;font-weight:950;letter-spacing:.22em;font-size:18px;background:radial-gradient(circle,rgba(15,95,130,.35),rgba(2,15,24,.65) 58%,transparent 60%);box-shadow:0 0 80px rgba(52,214,255,.22),inset 0 0 38px rgba(52,214,255,.13);animation:bootCore 2.6s ease-in-out infinite}
+.boot-core:before,.boot-core:after{content:"";position:absolute;border-radius:50%;inset:-22px;border:1px dashed rgba(79,221,255,.34);animation:bootSpin 14s linear infinite}.boot-core:after{inset:-48px;border-style:solid;border-color:rgba(80,224,255,.12);animation-direction:reverse;animation-duration:21s}
+@keyframes bootSpin{to{transform:rotate(360deg)}}@keyframes bootCore{50%{box-shadow:0 0 110px rgba(52,214,255,.38),inset 0 0 55px rgba(52,214,255,.2)}}
+.boot-node{position:absolute;min-width:165px;padding:12px 14px;border:1px solid rgba(75,220,255,.28);border-radius:10px;background:rgba(2,19,31,.82);backdrop-filter:blur(10px);box-shadow:0 15px 45px rgba(0,0,0,.3);opacity:0;transform:translateY(12px);animation:bootNode .6s forwards}.boot-node b{display:block;font-size:9px;letter-spacing:.16em;color:#78e5ff;margin-bottom:5px}.boot-node span{font-size:10px;color:#b5ced9}.boot-node i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#48e9bd;box-shadow:0 0 10px #48e9bd;margin-right:7px}.bn1{left:0;top:18%;animation-delay:1.2s}.bn2{right:0;top:18%;animation-delay:1.45s}.bn3{left:4%;bottom:15%;animation-delay:1.7s}.bn4{right:4%;bottom:15%;animation-delay:1.95s}@keyframes bootNode{to{opacity:1;transform:none}}
+.boot-copy{position:absolute;left:50%;bottom:-3%;transform:translateX(-50%);width:min(860px,90vw);text-align:center;z-index:3}.boot-eyebrow{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:#69ddfb;font-weight:900}.boot-copy h1{font-size:clamp(30px,4vw,58px);line-height:.95;letter-spacing:-.035em;margin:12px 0 10px}.boot-copy h1 em{font-style:normal;color:#4bdcff}.boot-status{height:24px;font-size:11px;letter-spacing:.05em;color:#9ebdca}.boot-status strong{color:#54e8bd}.boot-progress{width:min(420px,70vw);height:2px;margin:15px auto 0;background:rgba(75,220,255,.12);overflow:hidden}.boot-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#1c8fc5,#4bdcff,#58e8b8);box-shadow:0 0 14px #4bdcff;animation:bootProgress 5.4s cubic-bezier(.12,.72,.18,1) forwards}@keyframes bootProgress{to{width:100%}}
+.boot-skip{position:absolute;right:3vw;bottom:3vh;border:1px solid rgba(75,220,255,.24);background:rgba(4,22,35,.62);color:#8fc5d6;border-radius:999px;padding:9px 13px;font:800 8px Inter,Arial;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}.boot-skip:hover{color:#fff;border-color:#54ddff}
+.boot-ready{position:absolute;left:3vw;bottom:3vh;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#5f91a4}.boot-ready:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#49e5bb;box-shadow:0 0 10px #49e5bb;margin-right:8px}
+@media(max-width:800px){.boot-center{height:65vh}.boot-building{width:330px;height:330px}.boot-floor{height:46px}.boot-floor:nth-child(2){bottom:52px}.boot-floor:nth-child(3){bottom:104px}.boot-floor:nth-child(4){bottom:156px}.boot-floor:nth-child(5){bottom:208px}.boot-floor:nth-child(6){bottom:260px}.boot-node{display:none}.boot-copy{bottom:-10%}.boot-core{width:125px;height:125px;font-size:15px}}
+@media(prefers-reduced-motion:reduce){.columbia-boot-grid,.columbia-boot-scan,.boot-floor,.boot-core,.boot-core:before,.boot-core:after,.boot-progress i{animation:none!important}.boot-floor{opacity:.72}.boot-node{opacity:1;transform:none}}
+
+/* V19 — launch composition repair: reserve a dedicated copy lane so status nodes never collide with headline. */
+@media (min-width:801px){
+  .boot-center{top:46%;height:min(560px,66vh);width:min(1040px,90vw)}
+  .boot-building{width:min(400px,38vw);height:min(360px,43vh);top:8%}
+  .boot-core{top:35%;transform:translateY(-50%)}
+  .bn1{left:0;top:8%}.bn2{right:0;top:8%}
+  .bn3{left:2%;bottom:28%}.bn4{right:2%;bottom:28%}
+  .boot-copy{bottom:-10%;width:min(760px,64vw);padding:0 18px}
+  .boot-copy h1{font-size:clamp(30px,3.25vw,48px);line-height:1.02;margin:10px auto 9px;max-width:760px}
+  .boot-status{height:20px}
+}
+@media (min-width:801px) and (max-height:820px){
+  .boot-center{top:44%;height:520px}
+  .boot-building{height:320px;transform:perspective(950px) rotateX(58deg) rotateZ(-5deg) scale(.9)}
+  .boot-core{width:138px;height:138px;top:32%}
+  .bn1,.bn2{top:5%}.bn3,.bn4{bottom:30%}
+  .boot-copy{bottom:-12%;width:min(700px,62vw)}
+  .boot-copy h1{font-size:clamp(28px,3vw,42px)}
+}

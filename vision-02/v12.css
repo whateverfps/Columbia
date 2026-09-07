@@ -1,0 +1,44 @@
+/* V12 — clean dashboard + obvious access to Paul's AI Vision */
+:root{--v12:#43d8ff;--v12b:#128ff2;--v12ink:#04111d;--v12line:rgba(67,216,255,.34)}
+/* remove the old always-on clutter layers if a browser cached/loads them */
+.dream-pulse,.vision-story,.role-controls,.role-hud,.role-canvas,.role-vignette,.pv-signal,.pv-tourbar{display:none!important}
+.hero.role-live .hero-media{opacity:1!important;filter:saturate(.9) contrast(1.05)!important}
+.hero.role-live{min-height:166px!important}
+
+/* persistent, findable controls */
+.pv-top-actions{display:flex;gap:6px;align-items:center;margin-left:0!important;flex:0 0 auto}
+.pv-mini{height:30px;padding:0 11px!important;white-space:nowrap;font-size:8px!important;letter-spacing:.11em!important;border-radius:999px!important}
+.pv-mini-vision{border-color:#32cfff!important;background:linear-gradient(90deg,#0879b9,#16a7d9)!important;color:#00131d!important;font-weight:950!important;box-shadow:0 0 24px rgba(53,207,255,.18)}
+.pv-mini-vision:before{content:'✦';margin-right:6px}
+.pv-mini-demo:before{content:'▶';margin-right:6px;color:#78e9ff}
+.pv-mini-xray:before{content:'⌗';margin-right:6px;color:#78e9ff}
+
+/* page-specific hero CTA: impossible to miss but still fits the existing design */
+.pv-explore{height:34px!important;border-radius:17px!important;padding:0 14px!important;font-size:8px!important;letter-spacing:.04em!important;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.32),0 0 30px rgba(53,207,255,.14)!important}
+.pv-explore b{font-weight:950;letter-spacing:.06em}.pv-explore em{font-style:normal;opacity:.78;font-weight:700}
+
+/* rail access is permanent, not a hidden demo state */
+.nav a.vision-nav{margin-top:5px;border:1px solid rgba(67,216,255,.22);background:linear-gradient(90deg,rgba(12,74,107,.32),rgba(4,17,29,.35));color:#dffbff}
+.nav a.vision-nav .ico{border-color:#32bce9;background:rgba(22,126,172,.18)}
+.nav a.demo-nav{color:#8fdff4}
+
+/* full-screen role world polish */
+.pv-stage{background:radial-gradient(circle at 50% 42%,#0b2942 0,#051522 35%,#01070d 78%)!important}
+.pv-stagehead{max-width:760px}.pv-stagehead h2{font-size:clamp(28px,3vw,48px)!important;letter-spacing:-.025em!important}.pv-stagehead p{font-size:14px!important;max-width:720px!important;line-height:1.5!important}
+.pv-stage-actions{position:absolute;right:84px;top:25px;z-index:30;display:flex;gap:8px}.pv-stage-actions a,.pv-stage-actions button{height:34px;border:1px solid rgba(83,211,255,.28);border-radius:999px;background:rgba(4,20,33,.8);color:#dff8ff;padding:0 13px;font:800 9px/32px system-ui;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.pv-stage-actions a.primary{border-color:#45d7ff;background:linear-gradient(90deg,rgba(8,116,175,.92),rgba(23,174,212,.92));color:#00151f}.pv-stage-actions a:hover,.pv-stage-actions button:hover{border-color:#72e6ff;transform:translateY(-1px)}
+.pv-demo-badge{left:auto!important;right:28px!important;bottom:20px!important;text-align:right}
+
+/* a small visible identity strip inside every world */
+.pv-world-id{position:absolute;left:34px;bottom:20px;z-index:20;display:flex;align-items:center;gap:9px;color:#7cb9cc;font:800 8px/1 system-ui;letter-spacing:.14em;text-transform:uppercase}.pv-world-id i{width:7px;height:7px;border-radius:50%;background:#54e6a0;box-shadow:0 0 14px #54e6a0}
+
+/* x-ray is now informative instead of merely desaturating */
+.pv-xray-on .content:before{content:'SYSTEM X-RAY • AUTHORIZED SOURCES → IDENTITY → POLICY → REASONING → EVIDENCE → ROLE EXPERIENCE';position:sticky;top:52px;z-index:80;display:block;margin:8px 0;padding:9px 12px;border:1px solid rgba(83,211,255,.35);border-radius:7px;background:rgba(3,18,29,.94);color:#83e6ff;font-size:8px;font-weight:900;letter-spacing:.12em;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.pv-xray-on .panel,.pv-xray-on .metric-card,.pv-xray-on .intel-main,.pv-xray-on .recs,.pv-xray-on .hero{outline:1px dashed rgba(83,211,255,.35);outline-offset:-4px}
+
+/* dedicated hub/demo pages */
+.vision-hub-card{position:relative;overflow:hidden}.vision-hub-card:after{content:'';position:absolute;left:-60%;top:0;width:32%;height:100%;background:linear-gradient(90deg,transparent,rgba(123,235,255,.09),transparent);transform:skewX(-20deg);animation:v12sheen 7s ease-in-out infinite}@keyframes v12sheen{0%,68%{left:-60%}100%{left:140%}}
+
+@media(max-width:1250px){.topbar .search{display:none}.pv-mini{padding:0 9px!important}.pv-top-actions{margin-left:auto!important}}
+@media(max-width:980px){.pv-top-actions .pv-mini-demo,.pv-top-actions .pv-mini-xray{display:none}.pv-stage-actions{right:70px}.pv-stage-actions .secondary{display:none}}
+@media(max-width:780px){.pv-top-actions{display:flex!important;margin-left:auto!important}.pv-mini-vision{display:inline-flex!important}.pv-explore{font-size:7px!important}.pv-stage-actions{left:18px;right:auto;top:112px}.pv-stagehead{top:24px!important}.pv-scene{inset:154px 12px 34px!important}.pv-demo-badge{display:none}}
+@media(prefers-reduced-motion:reduce){.vision-hub-card:after{animation:none}}

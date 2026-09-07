@@ -1,0 +1,139 @@
+/* V15 — FUTURE FABRIC: wallpaper-inspired ambient intelligence without covering dashboard data */
+.hero{isolation:isolate;overflow:hidden}
+.hero .hero-media{z-index:0}
+.hero .hero-copy,.hero .hero-quote{position:relative;z-index:4}
+.future-fabric{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden;mix-blend-mode:screen}
+.future-fabric canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.8}
+.future-fabric:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,12,21,.78) 0%,rgba(2,12,21,.38) 41%,rgba(2,12,21,.05) 70%,rgba(2,12,21,.20) 100%);pointer-events:none}
+.future-hud{position:absolute;right:18px;top:18px;z-index:3;width:min(270px,31%);display:grid;gap:7px;opacity:.92}
+.future-hud .ff-title{font-size:8px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:#70e6ff;text-align:right;text-shadow:0 0 14px rgba(62,220,255,.5)}
+.future-hud .ff-chip{justify-self:end;display:flex;gap:8px;align-items:center;padding:7px 9px;border:1px solid rgba(82,217,255,.23);border-radius:7px;background:linear-gradient(90deg,rgba(2,18,29,.26),rgba(3,24,39,.76));backdrop-filter:blur(6px);font-size:7px;letter-spacing:.11em;color:#caefff;text-transform:uppercase;white-space:nowrap}
+.future-hud .ff-chip:before{content:"";width:5px;height:5px;border-radius:50%;background:#41f2c2;box-shadow:0 0 10px #41f2c2;animation:ffPulse 2.2s ease-in-out infinite}
+.future-hud .ff-chip:nth-child(3):before{background:#42d7ff;box-shadow:0 0 10px #42d7ff;animation-delay:.6s}
+.future-hud .ff-chip:nth-child(4):before{background:#ffd36b;box-shadow:0 0 10px #ffd36b;animation-delay:1.1s}
+@keyframes ffPulse{0%,100%{opacity:.45;transform:scale(.75)}50%{opacity:1;transform:scale(1.25)}}
+.future-corner{position:absolute;z-index:3;right:18px;bottom:14px;font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:#77cfe8;opacity:.9;padding-left:22px}.future-corner:before{content:"";position:absolute;left:0;top:50%;width:16px;height:1px;background:#3ed8ff;box-shadow:0 0 9px #3ed8ff}
+body[data-page="project"] .future-fabric canvas,body[data-page="preconstruction"] .future-fabric canvas{opacity:.95}
+body[data-page="finance"] .future-fabric canvas{opacity:.9}
+body[data-page="people"] .future-fabric canvas{opacity:.82}
+body[data-page="it"] .future-fabric canvas{opacity:.95}
+body[data-page="studio"] .future-fabric canvas,body[data-page="journey"] .future-fabric canvas{opacity:.88}
+body[data-page="business-case"] .future-fabric canvas{opacity:.9}
+
+/* Give feature cards a little wallpaper-like depth without stealing legibility */
+.metric-card,.panel,.section.intel,.feature{position:relative;overflow:hidden}
+.metric-card:after,.panel:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 0 63%,rgba(58,210,255,.025) 66%,transparent 69%);transform:translateX(-120%);animation:ffSheen 11s ease-in-out infinite}
+@keyframes ffSheen{0%,72%{transform:translateX(-120%)}88%,100%{transform:translateX(120%)}}
+
+/* X-Ray V15 extended workspace */
+.xray-workspace{--xr:#43dbff;--xr2:#44f0bf}
+.xray-shell{max-width:1500px!important;padding-bottom:72px!important}
+.xray-head{position:sticky;top:0;z-index:8;background:linear-gradient(180deg,rgba(2,10,17,.98),rgba(2,10,17,.88) 78%,transparent);backdrop-filter:blur(12px);padding-top:20px!important}
+.xr-lab{margin-top:18px;border:1px solid rgba(66,215,255,.22);border-radius:18px;background:linear-gradient(180deg,rgba(4,28,44,.86),rgba(2,14,24,.92));box-shadow:0 30px 80px rgba(0,0,0,.32),inset 0 1px 0 rgba(126,231,255,.05);overflow:hidden}
+.xr-lab-top{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid rgba(74,214,255,.13);background:rgba(1,13,22,.45);position:sticky;top:112px;z-index:7;backdrop-filter:blur(14px)}
+.xr-lab-top strong{margin-right:auto;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#a9ebff}.xr-lab-top small{font-size:8px;color:#6f9cb1;margin-right:6px}
+.xr-lab-tab{border:1px solid rgba(71,211,255,.2);background:rgba(3,22,35,.72);color:#8eb9ca;border-radius:999px;padding:8px 11px;font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.xr-lab-tab.active{color:#eaffff;border-color:#41d8ff;background:linear-gradient(180deg,rgba(19,122,166,.55),rgba(7,64,91,.62));box-shadow:0 0 20px rgba(50,207,255,.12)}
+.xr-lab-pane{display:none;padding:16px}.xr-lab-pane.active{display:block}
+.xr-map-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.xr-lineage-wrap{min-height:410px;border:1px solid rgba(70,216,255,.14);border-radius:13px;background:radial-gradient(circle at 52% 45%,rgba(19,117,160,.14),transparent 35%),linear-gradient(rgba(50,168,214,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(50,168,214,.035) 1px,transparent 1px);background-size:auto,36px 36px,36px 36px;position:relative;overflow:hidden}
+.xr-lineage-svg{width:100%;height:410px;display:block}.xr-lineage-svg .edge{stroke:#1e6f91;stroke-width:1.4;fill:none;opacity:.7}.xr-lineage-svg .edge.hot{stroke:#49dfff;stroke-width:2;filter:drop-shadow(0 0 5px #49dfff)}.xr-lineage-svg .edge.blocked{stroke:#ff5d73;stroke-dasharray:6 5}.xr-lineage-svg .node{fill:#061a28;stroke:#297798;stroke-width:1.2}.xr-lineage-svg .node.core{fill:#062b3d;stroke:#4adfff;stroke-width:1.8;filter:drop-shadow(0 0 10px rgba(72,221,255,.45))}.xr-lineage-svg .node.gate{fill:#09261f;stroke:#45e9ba}.xr-lineage-svg text{font:700 11px Inter,Arial,sans-serif;fill:#d7f5ff}.xr-lineage-svg .sub{font-size:8px;fill:#719db0;font-weight:500}.xr-packet{fill:#62eaff;filter:drop-shadow(0 0 7px #62eaff);opacity:0}.xr-lineage-wrap.running .xr-packet{opacity:1;animation:xrPacket 2.6s linear infinite}@keyframes xrPacket{0%{offset-distance:0}100%{offset-distance:100%}}
+.xr-side-stack{display:grid;gap:12px}.xr-mini{border:1px solid rgba(73,213,255,.15);border-radius:12px;padding:13px;background:rgba(3,18,29,.72)}.xr-mini h4{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#78dbf7;margin:0 0 10px}.xr-health{display:grid;gap:8px}.xr-health-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;font-size:10px;color:#c9ebf6}.xr-health-row small{grid-column:1/-1;color:#648fa2;font-size:8px;margin-top:-6px}.xr-health-row i{width:7px;height:7px;border-radius:50%;background:#44e8b8;box-shadow:0 0 9px #44e8b8}.xr-health-row.warn i{background:#ffd15f;box-shadow:0 0 9px #ffd15f}
+.xr-role-compare{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.xr-role-card{border:1px solid rgba(70,214,255,.14);border-radius:12px;padding:12px;background:rgba(3,20,31,.7)}.xr-role-card b{display:block;font-size:10px;color:#e7f9ff;margin-bottom:8px}.xr-role-card span{display:flex;justify-content:space-between;gap:8px;font-size:8px;color:#7ea9ba;padding:5px 0;border-bottom:1px solid rgba(79,191,227,.08)}.xr-role-card span:last-child{border:0}.xr-role-card em{font-style:normal;color:#46e8ba}.xr-role-card em.block{color:#ff7184}.xr-role-card.current{border-color:#47dfff;box-shadow:0 0 25px rgba(66,217,255,.09)}
+.xr-inspector{display:grid;grid-template-columns:.8fr 1.2fr;gap:14px}.xr-evidence-list{display:grid;gap:8px}.xr-evidence-btn{border:1px solid rgba(69,210,255,.14);border-radius:11px;padding:11px;text-align:left;background:rgba(3,18,28,.76);cursor:pointer;color:#b9dce8}.xr-evidence-btn b{display:block;color:#e8fbff;font-size:10px;margin-bottom:4px}.xr-evidence-btn small{font-size:8px;color:#6d9aab}.xr-evidence-btn.active{border-color:#44dcff;background:rgba(6,48,67,.7)}.xr-detail{border:1px solid rgba(68,213,255,.16);border-radius:12px;padding:14px;background:rgba(2,16,26,.82);min-height:300px}.xr-detail h3{font-size:17px;margin:0 0 5px}.xr-detail .meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.xr-detail .meta span{padding:5px 7px;border:1px solid rgba(71,210,255,.15);border-radius:6px;font-size:8px;color:#8bb9c9}.xr-detail pre{white-space:pre-wrap;color:#bfe8f4;background:#02111b;border:1px solid rgba(66,210,255,.12);border-radius:8px;padding:10px;font:9px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;max-height:190px;overflow:auto}.xr-why{border-left:2px solid #45dfff;padding-left:10px;color:#9fc6d4;font-size:10px;line-height:1.5}
+.xr-audit{display:grid;grid-template-columns:1.05fr .95fr;gap:14px}.xr-timeline{border:1px solid rgba(69,212,255,.14);border-radius:12px;padding:14px;background:rgba(2,16,27,.72)}.xr-audit-row{display:grid;grid-template-columns:70px 18px 1fr auto;gap:8px;align-items:start;padding:9px 0;border-bottom:1px solid rgba(70,185,222,.09);font-size:9px}.xr-audit-row:last-child{border:0}.xr-audit-row time{color:#678fa1}.xr-audit-row i{width:8px;height:8px;border-radius:50%;background:#43e9ba;margin-top:2px;box-shadow:0 0 8px rgba(67,233,186,.65)}.xr-audit-row b{font-size:9px;color:#dff8ff}.xr-audit-row span{display:block;color:#749dae;margin-top:2px}.xr-audit-row em{font-style:normal;color:#42dfff;font-size:8px}.xr-policy-card{border:1px solid rgba(69,212,255,.14);border-radius:12px;padding:14px;background:rgba(2,16,27,.72)}.xr-policy-card h4{margin:0 0 10px;font-size:10px;color:#dff7ff}.xr-policy-kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px}.xr-policy-kpis div{border:1px solid rgba(69,212,255,.1);border-radius:9px;padding:10px}.xr-policy-kpis small{display:block;font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:#6c98aa}.xr-policy-kpis b{font-size:14px}.xr-download{width:100%;margin-top:10px}
+.xr-sim{display:grid;grid-template-columns:.75fr 1.25fr;gap:14px}.xr-sim-controls{border:1px solid rgba(69,212,255,.14);border-radius:12px;padding:14px;background:rgba(2,16,27,.72)}.xr-field{display:grid;gap:5px;margin-bottom:10px}.xr-field label{font-size:8px;letter-spacing:.11em;text-transform:uppercase;color:#70a4b7}.xr-field select,.xr-field textarea{width:100%;background:#031622;border:1px solid rgba(71,210,255,.2);border-radius:8px;padding:9px;color:#dff8ff;font:10px Inter,Arial,sans-serif;box-sizing:border-box}.xr-field textarea{min-height:84px;resize:vertical}.xr-sim-result{border:1px solid rgba(69,212,255,.14);border-radius:12px;padding:16px;background:radial-gradient(circle at 70% 15%,rgba(40,160,199,.12),transparent 35%),rgba(2,16,27,.72);min-height:280px}.xr-result-badge{display:inline-flex;padding:6px 9px;border-radius:999px;background:rgba(56,231,181,.11);border:1px solid rgba(56,231,181,.38);color:#62efc3;font-size:8px;font-weight:900;letter-spacing:.14em}.xr-result-badge.blocked{color:#ff7588;border-color:rgba(255,93,116,.38);background:rgba(255,93,116,.1)}.xr-sim-result h2{font-size:21px;margin:12px 0 8px}.xr-sim-result p{color:#8fb9c9;font-size:10px;line-height:1.5}.xr-rule-list{display:grid;gap:7px;margin-top:12px}.xr-rule-list div{display:flex;gap:8px;align-items:flex-start;font-size:9px;color:#a8cfdb}.xr-rule-list i{width:7px;height:7px;border-radius:50%;background:#44e8b8;margin-top:3px;flex:none}.xr-rule-list i.block{background:#ff667b}
+@media(max-width:1050px){.future-hud{display:none}.xr-map-grid,.xr-inspector,.xr-audit,.xr-sim{grid-template-columns:1fr}.xr-role-compare{grid-template-columns:1fr 1fr}.xr-lab-top{overflow-x:auto}.xr-lab-tab{white-space:nowrap}}
+@media(prefers-reduced-motion:reduce){.future-fabric canvas{opacity:.45}.future-hud .ff-chip:before,.metric-card:after,.panel:after{animation:none!important}.xr-lineage-wrap.running .xr-packet{animation:none!important}}
+/* Keep the Vision Hub and long role pages physically scrollable even when legacy presentation CSS is present. */
+@media(min-width:781px){
+  body[data-page="vision-hub"] .main{height:100vh!important;overflow-y:auto!important;overflow-x:hidden!important;padding-bottom:72px!important}
+  body[data-page="vision-hub"] .vision-wrap{height:auto!important;min-height:calc(100vh - 46px)!important;padding-bottom:110px!important;overflow:visible!important}
+}
+
+/* V17 — X-Ray layout repair: no sticky layers may cover evidence or the lab canvas. */
+.xray-workspace{
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  overscroll-behavior:contain;
+  scrollbar-gutter:stable;
+}
+.xray-shell{
+  width:100%!important;
+  max-width:1600px!important;
+  margin:0 auto!important;
+  box-sizing:border-box!important;
+  padding-top:22px!important;
+  padding-bottom:100px!important;
+}
+.xray-head{
+  position:relative!important;
+  top:auto!important;
+  z-index:2!important;
+  background:linear-gradient(180deg,rgba(2,10,17,.97),rgba(2,10,17,.86))!important;
+  backdrop-filter:none!important;
+  padding-top:0!important;
+  margin-bottom:18px!important;
+}
+.xr-lab{
+  overflow:visible!important;
+  margin-top:24px!important;
+}
+.xr-lab-top{
+  position:relative!important;
+  top:auto!important;
+  z-index:2!important;
+  display:grid!important;
+  grid-template-columns:auto 1fr repeat(5,auto)!important;
+  align-items:center!important;
+  gap:8px!important;
+  min-height:58px!important;
+  padding:12px 16px!important;
+  background:linear-gradient(180deg,rgba(3,22,35,.98),rgba(2,15,25,.96))!important;
+  backdrop-filter:none!important;
+}
+.xr-lab-top strong{margin-right:0!important;white-space:nowrap}
+.xr-lab-top small{margin:0!important;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.xr-lab-pane{padding:18px!important;overflow:visible!important}
+.xr-map-grid{align-items:start!important}
+.xr-lineage-wrap{min-height:430px!important;overflow:hidden!important}
+.xr-lineage-svg{height:430px!important}
+.xr-side-stack{align-self:start!important}
+
+/* Keep the original three X-Ray columns readable instead of compressing their rows. */
+.xray-grid{align-items:start!important}
+.xray-card{min-width:0!important}
+.xray-source,.xray-step,.xray-evidence-item{position:relative!important;z-index:1!important}
+
+/* A small divider makes the Lab clearly begin after the request trace, rather than appearing on top of it. */
+.xr-lab:before{
+  content:'DEEP INSPECTION WORKSPACE';
+  display:block;
+  margin:-10px 16px 10px;
+  width:max-content;
+  padding:4px 9px;
+  border:1px solid rgba(66,215,255,.25);
+  border-radius:999px;
+  background:#03131f;
+  color:#6fdfff;
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.16em;
+}
+@media(max-width:1280px){
+  .xr-lab-top{grid-template-columns:1fr auto auto auto!important}
+  .xr-lab-top small{grid-column:1/-1;grid-row:2}
+  .xr-lab-top .xr-lab-tab:nth-of-type(n+4){grid-row:3}
+}
+@media(max-width:900px){
+  .xr-lab-top{display:flex!important;flex-wrap:wrap!important;overflow:visible!important}
+  .xr-lab-top strong{width:100%}
+  .xr-lab-top small{width:100%;white-space:normal}
+}
+
+/* V18 — Live Demo safe zones. The ambient fabric remains, but it never competes with chapter data. */
+body:has(.demo) .future-corner{right:28px!important;bottom:18px!important;opacity:.68!important}
+@media(min-width:1100px){
+  .demo .visual{right:5.5vw!important;top:7vh!important;bottom:6vh!important}
+  .demo .node.n2{right:7%!important;top:23%!important}
+  .demo .hud[style*="right:0;top:0"]{right:1%!important;top:2%!important}
+  .demo .open-role{right:1%!important;bottom:1%!important}
+}

@@ -1,0 +1,98 @@
+/* V13 — preserve every capability, restore Chief orb, add page-specific Vision tool, and make every dashboard readable/scrollable */
+:root{--v13-cyan:#49dcff;--v13-blue:#128ef0;--v13-panel:#061522;--v13-line:rgba(73,220,255,.32)}
+
+/* 1) Never trap the dashboard inside one viewport. The fixed-height V4/V6 rules were clipping bottom content. */
+@media(min-width:1101px){
+  html,body,.shell{height:auto!important;min-height:100vh!important;overflow-x:hidden!important;overflow-y:auto!important}
+  .main{height:auto!important;min-height:100vh!important;overflow:visible!important;padding-bottom:82px!important}
+  .content{height:auto!important;min-height:0!important;display:block!important;overflow:visible!important;padding:12px 0 86px!important}
+  .content > .section,.content > .metrics,.content > .layout2,.content > .layout3,.content > .feature-strip,.content > .source-note{margin-top:10px!important}
+  .hero{height:auto!important;min-height:210px!important}
+  .intel{height:auto!important;min-height:132px!important}
+  .metrics{height:auto!important;min-height:92px!important}
+  .layout2,.layout3{height:auto!important;min-height:210px!important}
+  .layout2>.panel,.layout3>.panel{height:auto!important;min-height:210px!important;overflow:visible!important}
+  .feature-strip{height:auto!important;min-height:118px!important}
+  .feature{height:auto!important;min-height:116px!important}
+  .thumb{height:64px!important;flex:0 0 64px!important}
+  .mini-chart{height:150px!important;min-height:150px!important;max-height:none!important}
+  .chart-wrap{height:155px!important;min-height:155px!important}
+  .mapbox{height:160px!important}
+  .bar-chart{height:155px!important}
+}
+
+/* 2) Give the presentation controls their own lane instead of cramming into the top bar. */
+.topbar{position:sticky!important;top:0!important;z-index:60!important;overflow:visible!important}
+.pv-top-actions{position:fixed!important;right:18px!important;top:58px!important;z-index:58!important;padding:5px!important;border:1px solid rgba(73,220,255,.18)!important;border-radius:999px!important;background:rgba(3,15,25,.86)!important;backdrop-filter:blur(14px)!important;box-shadow:0 12px 34px rgba(0,0,0,.28)!important}
+.pv-mini{height:28px!important}
+@media(max-width:1200px){.pv-top-actions{right:12px!important}.pv-mini-demo,.pv-mini-xray{display:none!important}}
+@media(max-width:780px){.pv-top-actions{top:58px!important;right:10px!important}.pv-mini-vision{display:inline-flex!important}}
+
+/* 3) Tables and dense panels should expose data instead of cropping it. */
+.panel{overflow:visible!important}
+.table{width:100%!important}
+.layout2 .panel,.layout3 .panel{align-self:start}
+.recs,.intel-main{min-width:0}
+.intel{overflow:visible!important}
+@media(max-width:1050px){.panel{overflow-x:auto!important}.table{min-width:620px}}
+
+/* 4) Permanent page-specific Paul's AI Vision launcher. */
+.pv-role-tool{position:fixed;right:20px;bottom:146px;z-index:94;width:286px;border:1px solid rgba(73,220,255,.38);border-radius:16px;background:linear-gradient(145deg,rgba(7,32,49,.96),rgba(3,15,25,.94));box-shadow:0 20px 55px rgba(0,0,0,.42),0 0 36px rgba(45,198,255,.10);backdrop-filter:blur(16px);overflow:hidden;transform:translateZ(0);transition:.22s ease}
+.pv-role-tool:hover{transform:translateY(-3px);border-color:rgba(85,229,255,.7);box-shadow:0 26px 68px rgba(0,0,0,.48),0 0 48px rgba(45,198,255,.17)}
+.pv-role-tool button{all:unset;display:block;width:100%;cursor:pointer;padding:14px 15px 13px;box-sizing:border-box}
+.pv-role-tool .pvrt-kicker{display:flex;align-items:center;gap:7px;font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:#78e8ff;font-weight:950}.pv-role-tool .pvrt-dot{width:7px;height:7px;border-radius:50%;background:#45e7bb;box-shadow:0 0 13px #45e7bb}.pv-role-tool b{display:block;margin:6px 0 3px;font-size:13px;letter-spacing:-.12px;color:#f1fbff}.pv-role-tool span{display:block;font-size:8px;line-height:1.4;color:#8eafc1}.pv-role-tool .pvrt-go{position:absolute;right:13px;top:17px;width:27px;height:27px;border-radius:50%;border:1px solid rgba(75,218,255,.35);display:grid;place-items:center;color:#75e8ff;font-size:13px}
+
+/* 5) Restore the floating Chief AI chat orb and make it a real docked tool. */
+.chief-orb{position:fixed;right:22px;bottom:72px;z-index:100;width:58px;height:58px;border-radius:50%;border:1px solid rgba(85,227,255,.72);background:radial-gradient(circle at 38% 30%,#1ec6fa,#0a6eaa 46%,#061827 72%);box-shadow:0 0 0 7px rgba(45,196,255,.06),0 0 35px rgba(45,196,255,.32),0 18px 42px rgba(0,0,0,.48);display:grid;place-items:center;color:#eaffff;font-weight:950;letter-spacing:.08em;cursor:pointer;transition:.2s ease}
+.chief-orb:before,.chief-orb:after{content:'';position:absolute;border-radius:50%;border:1px solid rgba(77,220,255,.26);inset:-8px;animation:v13ring 3.4s ease-out infinite}.chief-orb:after{inset:-16px;animation-delay:1.3s;opacity:.5}@keyframes v13ring{0%{transform:scale(.86);opacity:0}28%{opacity:.75}100%{transform:scale(1.22);opacity:0}}
+.chief-orb:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 0 0 8px rgba(45,196,255,.08),0 0 50px rgba(45,196,255,.44),0 22px 50px rgba(0,0,0,.5)}
+.chief-orb small{position:absolute;right:68px;white-space:nowrap;padding:7px 10px;border:1px solid rgba(73,220,255,.22);border-radius:9px;background:rgba(4,17,28,.92);font-size:8px;color:#bceeff;opacity:0;transform:translateX(6px);transition:.18s;pointer-events:none}.chief-orb:hover small{opacity:1;transform:none}
+.chief-chat{position:fixed;right:22px;bottom:142px;z-index:101;width:min(380px,calc(100vw - 28px));max-height:min(540px,calc(100vh - 175px));border:1px solid rgba(73,220,255,.34);border-radius:16px;background:linear-gradient(180deg,rgba(7,31,48,.98),rgba(3,14,24,.98));box-shadow:0 26px 80px rgba(0,0,0,.55),0 0 45px rgba(48,201,255,.10);backdrop-filter:blur(18px);overflow:hidden;display:none}.chief-chat.open{display:flex;flex-direction:column;animation:v13chat .2s ease-out}@keyframes v13chat{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.chief-chat-head{padding:14px 14px 11px;border-bottom:1px solid rgba(73,220,255,.14);display:flex;align-items:center;gap:10px}.chief-chat-mark{width:34px;height:34px;border-radius:50%;background:linear-gradient(145deg,#0879bd,#28d8ff);display:grid;place-items:center;color:#00131d;font-weight:950}.chief-chat-head b{font-size:12px}.chief-chat-head span{display:block;font-size:7px;color:#6f9eb6;letter-spacing:.08em;text-transform:uppercase;margin-top:2px}.chief-chat-close{margin-left:auto;border:1px solid #2b5f7c;border-radius:50%;background:#061726;color:#aed2e2;width:28px;height:28px;cursor:pointer}
+.chief-chat-body{padding:13px;overflow:auto;display:grid;gap:10px}.chief-bubble{border:1px solid rgba(73,220,255,.14);border-radius:12px;background:#071b2a;padding:11px 12px;font-size:9px;line-height:1.52;color:#c9dce7}.chief-bubble b{color:#fff}.chief-evidence{font-size:7px;color:#6e98ad;margin-top:7px}.chief-suggestions{display:flex;gap:6px;flex-wrap:wrap}.chief-suggestions button{border:1px solid #285d7a;border-radius:999px;background:#081b2a;color:#b8dbe9;padding:7px 9px;font-size:7px;cursor:pointer}.chief-suggestions button:hover{border-color:#45d8ff;color:white}.chief-entry{display:flex;gap:7px;padding:10px 12px 12px;border-top:1px solid rgba(73,220,255,.14);background:rgba(4,17,28,.78)}.chief-entry input{flex:1;min-width:0;border:1px solid #2b607d;border-radius:10px;background:#061522;color:#e8f8ff;padding:9px 10px;font-size:9px}.chief-entry button{border:1px solid #29baf0;border-radius:10px;background:linear-gradient(90deg,#0a83c7,#21c4ef);color:#00141e;padding:0 12px;font-size:8px;font-weight:900;cursor:pointer}
+
+/* Keep floating tools above the footer but clear of one another. */
+.footer{z-index:70!important}.ui-toast{z-index:120!important}
+@media(max-width:900px){.pv-role-tool{right:12px;bottom:140px;width:250px}.chief-orb{right:14px}.chief-chat{right:14px}}
+@media(max-width:640px){.pv-role-tool{left:10px;right:84px;bottom:70px;width:auto}.pv-role-tool b{font-size:11px}.pv-role-tool span{display:none}.chief-orb{bottom:68px}.chief-chat{right:8px;bottom:135px;width:calc(100vw - 16px)}}
+@media(prefers-reduced-motion:reduce){.chief-orb:before,.chief-orb:after{animation:none}.pv-role-tool,.chief-orb{transition:none}}
+
+/* V14 reliability patch: the application viewport itself scrolls. */
+@media (min-width:781px){
+  html,body{height:100%!important;overflow:hidden!important}
+  .shell{height:100vh!important;min-height:100vh!important;overflow:hidden!important}
+  .main{height:100vh!important;min-height:0!important;overflow-x:hidden!important;overflow-y:scroll!important;overscroll-behavior:contain;scrollbar-gutter:stable;padding-bottom:0!important}
+  .content{height:auto!important;min-height:calc(100vh - 50px)!important;overflow:visible!important;padding:12px 0 145px!important}
+  .feature-strip{margin-bottom:16px!important}
+  .source-note{margin-bottom:12px!important}
+}
+@media (max-width:780px){
+  html,body{height:auto!important;overflow-y:auto!important}
+  .shell,.main{height:auto!important;min-height:100vh!important;overflow:visible!important}
+  .content{padding-bottom:120px!important}
+}
+
+/* Vision CTAs must read as presentation controls, never as dim dashboard chrome. */
+.pv-explore{color:#eaffff!important;background:linear-gradient(90deg,rgba(5,75,111,.96),rgba(8,48,73,.96))!important;border-color:#36cfff!important;box-shadow:0 0 0 1px rgba(54,207,255,.08),0 0 22px rgba(54,207,255,.08)!important}
+.pv-explore b,.pv-explore em{color:#eaffff!important;opacity:1!important;font-style:normal!important}
+.pv-explore:hover{background:linear-gradient(90deg,#087bb4,#0b4b70)!important;box-shadow:0 0 28px rgba(54,207,255,.22)!important}
+
+/* Give the role tool and Chief breathing room above the fixed footer. */
+.pv-role-tool{bottom:158px!important}
+.chief-orb{bottom:78px!important}
+.chief-chat{bottom:152px!important}
+
+/* Full System X-Ray workspace */
+.xray-workspace{position:fixed;inset:0;z-index:12000;background:radial-gradient(circle at 62% 18%,rgba(15,91,129,.18),transparent 34%),#020a11;color:#dff8ff;display:none;overflow:auto;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.xray-workspace.open{display:block;animation:xrayIn .22s ease-out}@keyframes xrayIn{from{opacity:0}to{opacity:1}}
+.xray-shell{min-height:100%;padding:24px 28px 44px;background-image:linear-gradient(rgba(53,207,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(53,207,255,.025) 1px,transparent 1px);background-size:42px 42px}
+.xray-head{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start;border-bottom:1px solid #173b52;padding-bottom:17px;margin-bottom:18px}
+.xray-kicker{font-size:8px;font-weight:950;letter-spacing:.24em;text-transform:uppercase;color:#66ddff}.xray-title{font-size:31px;line-height:1.05;margin:7px 0 6px;letter-spacing:-.7px}.xray-sub{max-width:780px;font-size:11px;line-height:1.5;color:#96b4c5}
+.xray-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.xray-btn{border:1px solid #2c6584;border-radius:999px;background:#071a28;color:#d6f4ff;padding:9px 13px;font-size:8px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}.xray-btn.primary{border-color:#33cdfc;background:#0a759f;color:white}.xray-btn:hover{border-color:#53dfff}
+.xray-request{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(250px,.75fr);gap:12px;margin-bottom:12px}.xray-card{position:relative;border:1px solid #1e506c;border-radius:12px;background:linear-gradient(180deg,rgba(8,29,45,.96),rgba(5,18,29,.96));padding:14px;box-shadow:0 18px 55px rgba(0,0,0,.22);overflow:hidden}.xray-card h3{font-size:8px;text-transform:uppercase;letter-spacing:.16em;color:#79ddff;margin:0 0 9px}.xray-card .big{font-size:17px;line-height:1.25;font-weight:800;color:#f3fdff}.xray-card p{font-size:9px;line-height:1.5;color:#9cb8c8;margin:7px 0 0}.xray-status{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.xray-stat{border:1px solid #1a455e;border-radius:8px;padding:10px;background:#061724}.xray-stat small{display:block;font-size:6px;letter-spacing:.12em;color:#6f96aa;text-transform:uppercase}.xray-stat b{display:block;font-size:12px;margin-top:5px}.xray-ok{color:#46e5b7}.xray-warn{color:#ffc563}.xray-risk{color:#ff7083}
+.xray-pipeline{display:grid;grid-template-columns:repeat(7,minmax(105px,1fr));gap:20px;align-items:stretch;margin:15px 0 12px;position:relative}.xray-pipeline:before{content:'';position:absolute;left:5%;right:5%;top:50%;height:1px;background:linear-gradient(90deg,transparent,#2acff7 15%,#2acff7 85%,transparent);box-shadow:0 0 16px rgba(42,207,247,.28)}.xray-node{position:relative;z-index:2;min-height:92px;border:1px solid #23617f;border-radius:11px;background:#071c2c;padding:11px;text-align:center;display:grid;align-content:center;gap:5px;transition:.2s}.xray-node.active{border-color:#4ae2ff;box-shadow:0 0 0 1px rgba(74,226,255,.12),0 0 32px rgba(42,207,247,.18);transform:translateY(-2px)}.xray-node.done:after{content:'✓';position:absolute;right:7px;top:6px;color:#49e4b9;font-size:10px}.xray-node span{font-size:7px;color:#72a3ba;text-transform:uppercase;letter-spacing:.12em}.xray-node b{font-size:10px;color:#effbff}.xray-node i{font-style:normal;font-size:7px;color:#91afbf}
+.xray-grid{display:grid;grid-template-columns:1.05fr .95fr 1fr;gap:12px}.xray-tabs{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}.xray-tab{border:1px solid #235773;border-radius:999px;background:#071825;color:#8db1c2;padding:6px 9px;font-size:7px;cursor:pointer}.xray-tab.active{background:#0d4968;color:#e9fbff;border-color:#30bfe8}.xray-pane{display:none}.xray-pane.active{display:block}.xray-source{display:grid;grid-template-columns:28px 1fr auto;gap:9px;align-items:center;padding:9px 0;border-bottom:1px solid #12384e}.xray-source:last-child{border-bottom:0}.xray-source i{width:28px;height:28px;border-radius:7px;background:#0b3148;border:1px solid #245d7a;display:grid;place-items:center;font-style:normal;font-size:9px;color:#70e4ff}.xray-source b{font-size:9px;display:block}.xray-source small{font-size:7px;color:#789bad}.xray-source em{font-style:normal;font-size:7px;color:#49e4b9;border:1px solid rgba(73,228,185,.25);border-radius:999px;padding:3px 6px}.xray-trace{display:grid;gap:7px}.xray-step{display:grid;grid-template-columns:24px 1fr auto;gap:8px;align-items:start;padding:8px;border:1px solid #173f56;border-radius:8px;background:#061725}.xray-step i{width:24px;height:24px;border-radius:50%;background:#0b405e;display:grid;place-items:center;font-style:normal;color:#82eaff;font-size:7px}.xray-step b{font-size:8px;display:block}.xray-step span{font-size:7px;color:#789aaa;line-height:1.4}.xray-step em{font-style:normal;font-size:7px;color:#52dfb7}.xray-matrix{width:100%;border-collapse:collapse;font-size:7px}.xray-matrix th,.xray-matrix td{padding:7px;border-bottom:1px solid #14374b;text-align:left}.xray-matrix th{color:#7096aa;text-transform:uppercase;font-size:6px;letter-spacing:.08em}.xray-matrix td{color:#bcd2dd}.xray-pill{border-radius:999px;padding:3px 6px;font-size:6px}.xray-pill.yes{background:#0b5445;color:#a9ffe2}.xray-pill.no{background:#51212b;color:#ffd0d8}.xray-pill.review{background:#5a471a;color:#ffe29a}
+.xray-evidence{display:grid;gap:7px}.xray-evidence-item{border:1px solid #17465f;border-radius:8px;padding:9px;background:#061725}.xray-evidence-item b{font-size:8px}.xray-evidence-item p{font-size:7px;margin:4px 0 0;color:#8cabb9}.xray-confidence{height:6px;background:#0d293a;border-radius:999px;overflow:hidden;margin-top:6px}.xray-confidence i{display:block;height:100%;background:linear-gradient(90deg,#1ca5e2,#36ddb3)}
+.xray-action-boundary{margin-top:12px;border:1px solid #345d77;border-radius:10px;padding:12px;background:linear-gradient(90deg,rgba(7,37,52,.9),rgba(10,25,37,.9));display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.xray-action-boundary b{font-size:10px}.xray-action-boundary span{font-size:8px;color:#91adbb;display:block;margin-top:3px}.xray-live{position:absolute;right:12px;top:12px;display:flex;align-items:center;gap:6px;font-size:6px;letter-spacing:.12em;color:#50e0ba;text-transform:uppercase}.xray-live:before{content:'';width:6px;height:6px;border-radius:50%;background:#50e0ba;box-shadow:0 0 12px #50e0ba}
+@media(max-width:1180px){.xray-pipeline{grid-template-columns:repeat(4,1fr)}.xray-pipeline:before{display:none}.xray-grid{grid-template-columns:1fr 1fr}.xray-grid>.xray-card:last-child{grid-column:1/-1}}
+@media(max-width:760px){.xray-shell{padding:18px 12px 100px}.xray-head,.xray-request,.xray-grid{grid-template-columns:1fr}.xray-actions{justify-content:flex-start}.xray-pipeline{grid-template-columns:1fr 1fr}.xray-title{font-size:25px}.xray-status{grid-template-columns:1fr}}

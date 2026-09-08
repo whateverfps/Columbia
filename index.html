@@ -259,24 +259,191 @@ h1{
 @media(max-width:680px){.chief-character-zone{height:230px}.chief-avatar{width:220px;height:220px}.chief-glow{width:230px;height:230px}.chief-orbit{width:220px;height:220px}.chief-orbit.o2{width:185px;height:185px}.chief-workspace{top:255px}.tool-token{display:none}.speech{top:175px}.chief-avatar.hero{transform:scale(1.04)}}
 
 
-/* VISION 02 — secondary experience entry */
+
+/* VISION 02 — EXPERIMENTAL OVERRIDE INTRO */
 .experience-stack{display:flex;flex-direction:column;align-items:stretch;gap:7px}
 .experience-stack .enter{width:100%}
-.vision02-link{
-  display:flex;align-items:center;justify-content:center;gap:7px;
-  min-height:28px;padding:5px 10px;border:1px solid rgba(121,216,255,.24);
-  border-radius:10px;background:rgba(5,19,34,.58);color:#9fdfff;
-  font-size:9px;font-weight:900;letter-spacing:1.45px;text-transform:uppercase;
-  text-decoration:none;white-space:nowrap;transition:.2s ease;
-  box-shadow:inset 0 0 18px rgba(58,185,255,.025);
+
+/* The deliberately tempting red control */
+.vision-trigger{
+  position:fixed;z-index:40;top:22px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:13px;padding:8px 15px 8px 9px;
+  border:1px solid rgba(255,88,88,.34);border-radius:18px;
+  background:linear-gradient(180deg,rgba(19,7,9,.96),rgba(7,5,8,.96));
+  box-shadow:0 18px 55px rgba(0,0,0,.46),inset 0 0 0 1px rgba(255,255,255,.025);
+  backdrop-filter:blur(16px);
+  transition:.35s cubic-bezier(.2,.8,.2,1);
 }
-.vision02-link strong{color:#e9fbff;font-weight:900}
-.vision02-link:hover{transform:translateY(-1px);border-color:rgba(121,216,255,.65);background:rgba(8,30,50,.82);box-shadow:0 10px 28px rgba(49,190,255,.12)}
-.vision02-link:after{content:"↗";font-size:10px;color:#79d8ff}
-@media(max-width:700px){.experience-stack{width:100%}.vision02-link{width:100%;min-height:34px}}
+.vision-trigger:hover{border-color:rgba(255,102,102,.58);box-shadow:0 22px 70px rgba(0,0,0,.56),0 0 34px rgba(255,36,36,.08)}
+.vision-trigger .guard-copy{text-align:left;line-height:1}
+.vision-trigger .guard-copy b{display:block;color:#ffb1b1;font-size:8px;letter-spacing:1.8px;font-weight:950}
+.vision-trigger .guard-copy span{display:block;margin-top:5px;color:#715d64;font-size:7px;letter-spacing:1.15px;font-weight:850}
+.vision-red-button{
+  position:relative;width:54px;height:54px;border:0;border-radius:50%;cursor:pointer;
+  background:
+    radial-gradient(circle at 36% 29%,#ff8f8f 0 5%,#f22d36 17%,#bd111d 54%,#650812 73%,#250307 100%);
+  box-shadow:
+    0 7px 0 #39050b,
+    0 11px 15px rgba(0,0,0,.52),
+    0 0 0 4px #181015,
+    0 0 0 5px rgba(255,105,105,.22),
+    inset 0 2px 6px rgba(255,255,255,.36),
+    inset 0 -10px 18px rgba(35,0,3,.44);
+  transition:transform .12s ease,box-shadow .12s ease,filter .2s ease;
+}
+.vision-red-button:before{
+  content:"";position:absolute;inset:-8px;border-radius:50%;
+  border:1px dashed rgba(255,100,100,.28);animation:redGuard 4.4s linear infinite;
+}
+.vision-red-button:after{
+  content:"";position:absolute;inset:13px 15px 28px 15px;border-radius:50%;
+  background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,0));
+  filter:blur(.5px);pointer-events:none;
+}
+.vision-red-button:hover{filter:saturate(1.15) brightness(1.06)}
+.vision-red-button:active,.vision-trigger.engaging .vision-red-button{
+  transform:translateY(6px) scale(.97);
+  box-shadow:0 1px 0 #39050b,0 5px 10px rgba(0,0,0,.5),0 0 0 4px #181015,0 0 0 5px rgba(255,105,105,.25),inset 0 4px 10px rgba(65,0,4,.46);
+}
+@keyframes redGuard{to{transform:rotate(360deg)}}
+
+/* engagement sequence */
+.vision-sequence{
+  position:fixed;z-index:90;inset:0;display:none;align-items:center;justify-content:center;
+  background:rgba(1,3,7,.68);backdrop-filter:blur(7px);
+}
+.vision-sequence.active{display:flex;animation:seqIn .18s ease both}
+@keyframes seqIn{from{opacity:0}to{opacity:1}}
+.sequence-shell{position:relative;width:min(680px,88vw);text-align:center;padding:44px 34px 38px}
+.sequence-shell:before,.sequence-shell:after{
+  content:"";position:absolute;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg,transparent,#ff3e51 25%,#7be8ff 72%,transparent);
+  box-shadow:0 0 18px rgba(122,224,255,.28);
+}
+.sequence-shell:before{top:20px}.sequence-shell:after{bottom:20px}
+.sequence-kicker{font-size:9px;letter-spacing:3px;font-weight:950;color:#ff6f7d}
+.sequence-title{margin-top:14px;font-size:clamp(28px,5vw,56px);font-weight:850;letter-spacing:-1.8px}
+.sequence-title span{color:#8ee9ff}
+.sequence-status{margin:24px auto 0;min-height:22px;color:#8ca5b9;font-size:11px;letter-spacing:1.3px;font-weight:800}
+.sequence-meter{width:min(460px,76vw);height:3px;margin:22px auto 0;background:rgba(255,255,255,.08);overflow:hidden;border-radius:99px}
+.sequence-meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff3448,#8ee9ff,#b38cff);box-shadow:0 0 16px rgba(126,225,255,.5)}
+.vision-sequence.active .sequence-meter i{animation:seqMeter 2.85s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes seqMeter{0%{width:0}22%{width:18%}47%{width:44%}73%{width:76%}100%{width:100%}}
+.sequence-code{margin-top:17px;color:#536b80;font-size:8px;letter-spacing:1.25px}
+
+/* Transformed intro — same page, different operating mode */
+.stage:before{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:0;pointer-events:none;
+  background:
+    linear-gradient(rgba(66,230,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(66,230,255,.035) 1px,transparent 1px),
+    radial-gradient(circle at 50% 44%,rgba(0,230,255,.12),transparent 34%),
+    radial-gradient(circle at 70% 24%,rgba(211,67,255,.11),transparent 36%);
+  background-size:44px 44px,44px 44px,auto,auto;
+  transition:opacity .9s ease;
+}
+body.vision02-mode{
+  --cyan:#7ff4ff;--blue:#5ff5e9;--violet:#d565ff;
+  background:
+    radial-gradient(circle at 50% 115%,rgba(0,229,255,.25),transparent 43%),
+    radial-gradient(circle at 82% 12%,rgba(201,69,255,.17),transparent 34%),
+    radial-gradient(circle at 16% 17%,rgba(0,255,217,.12),transparent 31%),
+    #02070b;
+}
+body.vision02-mode .stage:before{opacity:1}
+body.vision02-mode .grid{
+  background-image:linear-gradient(rgba(75,240,255,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(75,240,255,.13) 1px,transparent 1px);
+  background-size:44px 44px;opacity:.64
+}
+body.vision02-mode .glow{background:radial-gradient(circle,rgba(75,236,255,.18),rgba(203,85,255,.09) 39%,transparent 70%)}
+body.vision02-mode .ring{border-color:rgba(88,238,255,.28);box-shadow:0 0 35px rgba(72,226,255,.035)}
+body.vision02-mode .ring.r2{border-color:rgba(203,91,255,.22)}
+body.vision02-mode .gradient{
+  background:linear-gradient(95deg,#f5ffff 8%,#7ff5ff 44%,#7bffd8 62%,#d66cff 91%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+body.vision02-mode .kicker{color:#7ff4ff}
+body.vision02-mode .thesis{border-color:rgba(79,236,255,.26);background:rgba(3,27,32,.48);color:#c9f5f3}
+body.vision02-mode .film,
+body.vision02-mode .chief-btn,
+body.vision02-mode .how-btn,
+body.vision02-mode .journey{border-color:rgba(82,239,255,.27);background:rgba(3,22,28,.54)}
+body.vision02-mode .corner.right:after{
+  content:"\A VISION 02 ACTIVE";white-space:pre;color:#6df5dd;font-size:8px;letter-spacing:1.3px
+}
+body.vision02-mode .footer{color:#5c8790}
+body.vision02-mode .particles i{background:#8affee;box-shadow:0 0 11px rgba(96,255,231,.85)}
+body.vision02-mode .vision-trigger{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-18px) scale(.92)}
+
+/* Version-2 primary CTA */
+.enter.v2-enter{
+  color:#001015;background:linear-gradient(110deg,#70fff0,#71dcff 52%,#d374ff);
+  box-shadow:0 17px 66px rgba(62,225,255,.24),0 0 0 1px rgba(126,246,255,.16) inset;
+}
+.enter.v2-enter:after{content:"↗"}
+.v2-subline{
+  display:none;margin-top:7px;color:#77f4e0;font-size:8px;letter-spacing:1.65px;font-weight:950;text-transform:uppercase
+}
+body.vision02-mode .v2-subline{display:block;animation:reveal .45s ease both}
+
+/* Disengage control appears only in mode */
+.disengage-control{
+  position:fixed;z-index:42;top:22px;left:50%;transform:translateX(-50%) translateY(-12px);
+  display:flex;align-items:center;gap:10px;padding:8px 11px 8px 14px;
+  border:1px solid rgba(89,246,222,.26);border-radius:16px;background:rgba(2,14,18,.87);
+  backdrop-filter:blur(14px);box-shadow:0 17px 48px rgba(0,0,0,.36);
+  opacity:0;pointer-events:none;transition:.45s ease;
+}
+body.vision02-mode .disengage-control{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.disengage-label{text-align:right}
+.disengage-label b{display:block;font-size:8px;color:#83f8e5;letter-spacing:1.6px}
+.disengage-label span{display:block;margin-top:4px;font-size:7px;color:#58777b;letter-spacing:1px}
+.disengage-switch{
+  width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,91,104,.35);background:#12070a;color:#ff6e7e;
+  cursor:pointer;font-size:15px;font-weight:900;box-shadow:inset 0 0 13px rgba(255,47,67,.07);transition:.2s ease
+}
+.disengage-switch:hover{background:#260a10;border-color:rgba(255,94,108,.7);transform:rotate(8deg)}
+
+body.mode-flash:after{
+  content:"";position:fixed;z-index:85;inset:0;pointer-events:none;background:#8ff8ff;mix-blend-mode:screen;
+  animation:modeFlash .48s ease forwards
+}
+@keyframes modeFlash{0%{opacity:0}32%{opacity:.23}100%{opacity:0}}
+
+@media(max-width:900px){
+  .vision-trigger,.disengage-control{top:10px}
+  .vision-trigger .guard-copy,.disengage-label{display:none}
+}
+@media(max-width:700px){
+  .experience-stack{width:100%}
+  .vision-trigger{position:absolute}
+  .disengage-control{position:absolute}
+}
+
 </style>
 </head>
 <body>
+
+<div class="vision-trigger" id="visionTrigger" aria-label="Vision 02 experimental override control">
+  <button class="vision-red-button" id="visionRedButton" type="button" aria-label="Engage Vision 02"></button>
+  <div class="guard-copy"><b>EXPERIMENTAL OVERRIDE</b><span>DO NOT ENGAGE · VISION 02</span></div>
+</div>
+
+<div class="disengage-control" id="disengageControl">
+  <div class="disengage-label"><b>VISION 02 ENGAGED</b><span>EXPERIMENTAL INTERFACE MODE</span></div>
+  <button class="disengage-switch" id="disengageButton" type="button" aria-label="Disengage Vision 02">×</button>
+</div>
+
+<div class="vision-sequence" id="visionSequence" aria-hidden="true">
+  <div class="sequence-shell">
+    <div class="sequence-kicker">COLUMBIA // EXPERIMENTAL MODE</div>
+    <div class="sequence-title">Engaging <span>Vision 02</span></div>
+    <div class="sequence-status" id="sequenceStatus">Override request detected</div>
+    <div class="sequence-meter"><i></i></div>
+    <div class="sequence-code">FOUNDATION · ROLE INTELLIGENCE · GOVERNANCE · LIVING SYSTEM</div>
+  </div>
+</div>
+
 <div class="stage">
   <div class="particles">
     <i style="left:8%;top:21%;animation-delay:-1s"></i><i style="left:18%;top:68%;animation-delay:-4s"></i>
@@ -306,8 +473,8 @@ h1{
 
     <div class="actions">
       <div class="experience-stack">
-        <button class="enter" onclick="location.href='enterprise.html'">Enter the experience</button>
-        <a class="vision02-link" href="vision-02/index.html?boot=1"><strong>VISION 02</strong> · LIVING INTELLIGENCE</a>
+        <button class="enter" id="primaryExperience" onclick="location.href='enterprise.html'">Enter the experience</button>
+        <div class="v2-subline" id="v2Subline">VISION 02 · LIVING INTELLIGENCE MODE</div>
       </div>
       <button class="film" onclick="window.open('assets/video/Columbia_Enterprise_AI_Film.mp4','_blank')">Watch the overview</button>
       <button class="chief-btn" onclick="openChiefDemo()">Meet Chief</button>
@@ -522,6 +689,64 @@ function openChiefDemo(){chiefDemo.classList.add('open');chiefDemo.setAttribute(
 function closeChiefDemo(){chiefDemo.classList.remove('open');chiefDemo.setAttribute('aria-hidden','true');clearInterval(demoTimer);clearInterval(typingTimer);clearInterval(walkTimer);chiefAudio.pause();chiefAudio.currentTime=0;say('',false)}
 chiefDemo.addEventListener('click',e=>{if(e.target===chiefDemo)closeChiefDemo()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&chiefDemo.classList.contains('open'))closeChiefDemo()});
+</script>
+
+
+<script>
+(function(){
+  const trigger = document.getElementById('visionTrigger');
+  const redButton = document.getElementById('visionRedButton');
+  const sequence = document.getElementById('visionSequence');
+  const status = document.getElementById('sequenceStatus');
+  const primary = document.getElementById('primaryExperience');
+  const disengage = document.getElementById('disengageButton');
+
+  const steps = [
+    [0, 'Override request detected'],
+    [520, 'Re-indexing enterprise experience'],
+    [1120, 'Connecting role-aware intelligence'],
+    [1750, 'Applying governed evidence layer'],
+    [2320, 'Living intelligence interface online']
+  ];
+
+  function setNormal(){
+    document.body.classList.remove('vision02-mode','mode-flash');
+    trigger.classList.remove('engaging');
+    primary.classList.remove('v2-enter');
+    primary.textContent = 'Enter the experience';
+    primary.onclick = () => location.href='enterprise.html';
+    sequence.classList.remove('active');
+    sequence.setAttribute('aria-hidden','true');
+  }
+
+  function engageVision02(){
+    if(document.body.classList.contains('vision02-mode')) return;
+    trigger.classList.add('engaging');
+    sequence.classList.add('active');
+    sequence.setAttribute('aria-hidden','false');
+    steps.forEach(([delay,text]) => setTimeout(()=>{ status.textContent=text; }, delay));
+
+    setTimeout(()=>{
+      document.body.classList.add('vision02-mode','mode-flash');
+      primary.classList.add('v2-enter');
+      primary.textContent = 'Enter Vision 02';
+      primary.onclick = () => location.href='vision-02/index.html?boot=1';
+    }, 2480);
+
+    setTimeout(()=>{
+      sequence.classList.remove('active');
+      sequence.setAttribute('aria-hidden','true');
+      trigger.classList.remove('engaging');
+      setTimeout(()=>document.body.classList.remove('mode-flash'),500);
+    }, 3080);
+  }
+
+  redButton.addEventListener('click', engageVision02);
+  disengage.addEventListener('click', setNormal);
+
+  // Each visit to the Columbia intro intentionally starts in the original state.
+  setNormal();
+})();
 </script>
 
 </body>
